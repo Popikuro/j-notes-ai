@@ -3,37 +3,30 @@ import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { ContextDecoder } from "@/components/ContextDecoder";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { createBrowserClient } from '@supabase/ssr'
 
-const CATEGORIES = ["All", "Business", "Slang", "Manners"];
+export const revalidate = 60; // Revalidate every minute
 
-const MOCK_ARTICLES = [
-  {
-    id: 1,
-    title: "Mastering the Art of 'Nemawashi'",
-    category: "Business",
-    excerpt: "Before the meeting starts, the decision has already been made. Learn the invisible art of consensus building in Japanese corporate culture.",
-    slug: "mastering-nemawashi",
-    date: "Feb 20, 2026",
-  },
-  {
-    id: 2,
-    title: "The True Meaning Behind 'Yoroshiku Onegaishimasu'",
-    category: "Manners",
-    excerpt: "It's the most versatile phrase in Japanese business, but what does it actually mean? Decoding the cultural expectations behind the greeting.",
-    slug: "true-meaning-yoroshiku",
-    date: "Feb 18, 2026",
-  },
-  {
-    id: 3,
-    title: "Decoding 'Chotto...': The Ultimate Refusal",
-    category: "Business",
-    excerpt: "When 'a little' means 'absolutely not'. How to navigate polite rejections without losing face.",
-    slug: "decoding-chotto",
-    date: "Feb 15, 2026",
-  },
-];
+export default async function Home() {
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
 
-export default function Home() {
+  // Fetch published articles
+  const { data: articles } = await supabase
+    .from("articles")
+    .select("*, categories(name)")
+    .eq("published", true)
+    .order("created_at", { ascending: false });
+
+  // Fetch categories
+  const { data: categories } = await supabase
+    .from("categories")
+    .select("*");
+
+  const categoryNames = ["All", ...(categories?.map(c => c.name) || [])];
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -115,7 +108,7 @@ export default function Home() {
             <p className="text-slate-500 font-outfit">Decoding the nuances of Japanese work and life.</p>
           </div>
           <div className="flex gap-2 bg-slate-100 dark:bg-slate-900 p-1 rounded-full overflow-x-auto hide-scrollbar">
-            {CATEGORIES.map((cat, i) => (
+            {categoryNames.map((cat, i) => (
               <button
                 key={cat}
                 className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${i === 0 ? "bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400" : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"}`}
@@ -127,13 +120,15 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {MOCK_ARTICLES.map((article) => (
+          {articles?.map((article) => (
             <Link href={`/article/${article.slug}`} key={article.id} className="group flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full">
-                  {article.category}
+                  {article.categories?.name || "Insight"}
                 </span>
-                <span className="text-xs text-slate-400 font-outfit">{article.date}</span>
+                <span className="text-xs text-slate-400 font-outfit">
+                  {new Date(article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                </span>
               </div>
               <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
                 {article.title}
@@ -146,6 +141,12 @@ export default function Home() {
               </div>
             </Link>
           ))}
+
+          {articles?.length === 0 && (
+            <div className="col-span-full py-12 text-center text-slate-500 font-outfit">
+              No articles published yet. Check back soon!
+            </div>
+          )}
         </div>
       </section>
 
