@@ -107,7 +107,7 @@ export default function AdminDashboard() {
                                     </td>
                                     <td className="p-4 flex items-center justify-end gap-2">
                                         {article.published && (
-                                            <Link href={`/article/${article.slug}`} target="_blank" className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 rounded-md transition-colors" title="View live">
+                                            <Link href={`/articles/${article.slug}`} target="_blank" className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 rounded-md transition-colors" title="View live">
                                                 <Eye className="w-4 h-4" />
                                             </Link>
                                         )}

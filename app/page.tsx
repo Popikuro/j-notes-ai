@@ -92,7 +92,7 @@ export default async function Home() {
             </p>
 
             <div className="pt-8">
-              <Link href="/article/deciphering-kento-shimasu" className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors bg-indigo-50 dark:bg-indigo-950/30 px-6 py-3 rounded-full">
+              <Link href="/articles/deciphering-kento-shimasu" className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors bg-indigo-50 dark:bg-indigo-950/30 px-6 py-3 rounded-full">
                 Read full analysis <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -121,7 +121,7 @@ export default async function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles?.map((article) => (
-            <Link href={`/article/${article.slug}`} key={article.id} className="group flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
+            <Link href={`/articles/${article.slug}`} key={article.id} className="group flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full">
                   {article.categories?.name || "Insight"}
