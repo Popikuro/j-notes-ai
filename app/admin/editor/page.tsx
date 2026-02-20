@@ -66,14 +66,17 @@ function EditorForm() {
         }
 
         setSaving(true);
-        const articleData = {
+        const articleData: any = {
             title,
             slug,
             excerpt,
             content,
-            category_id: categoryId,
             published: publish,
         };
+
+        if (categoryId) {
+            articleData.category_id = categoryId;
+        }
 
         try {
             if (articleId) {
