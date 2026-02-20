@@ -29,13 +29,19 @@ function EditorForm() {
 
     async function fetchArticle(id: string) {
         setLoading(true);
-        const { data } = await supabase.from("articles").select("*, categories(name)").eq("id", id).single();
+        const { data } = await supabase.from("articles").select("*").eq("id", id).single();
         if (data) {
+            let catName = "";
+            if (data.category_id) {
+                const { data: catData } = await supabase.from("categories").select("name").eq("id", data.category_id).single();
+                if (catData) catName = catData.name;
+            }
+
             setTitle(data.title);
             setSlug(data.slug);
             setExcerpt(data.excerpt || "");
             setContent(data.content);
-            setCategoryName(data.categories?.name || "");
+            setCategoryName(catName);
             setPublished(data.published);
         }
         setLoading(false);

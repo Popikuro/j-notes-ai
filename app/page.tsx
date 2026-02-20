@@ -14,9 +14,9 @@ export default async function Home() {
   );
 
   // Fetch published articles
-  const { data: articles } = await supabase
+  const { data: articlesData } = await supabase
     .from("articles")
-    .select("*, categories(name)")
+    .select("*")
     .eq("published", true)
     .order("created_at", { ascending: false });
 
@@ -26,6 +26,13 @@ export default async function Home() {
     .select("*");
 
   const categoryNames = ["All", ...(categories?.map(c => c.name) || [])];
+
+  // Manually map categories to articles
+  const categoryMap = new Map(categories?.map(c => [c.id, c.name]) || []);
+  const articles = articlesData?.map(article => ({
+    ...article,
+    categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
+  })) || [];
 
   return (
     <div className="flex flex-col min-h-screen">

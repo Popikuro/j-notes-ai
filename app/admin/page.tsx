@@ -23,20 +23,23 @@ export default function AdminDashboard() {
     }, []);
 
     async function fetchArticles() {
-        try {
-            setLoading(true);
-            const { data, error } = await supabase
-                .from("articles")
-                .select("id, title, slug, published, created_at")
-                .order("created_at", { ascending: false });
+        setLoading(true);
+        const [{ data: articlesData, error: articlesError }, { data: categoriesData }] = await Promise.all([
+            supabase.from("articles").select("*").order("created_at", { ascending: false }),
+            supabase.from("categories").select("*")
+        ]);
 
-            if (error) throw error;
-            setArticles(data || []);
-        } catch (error) {
-            console.error("Error fetching articles:", error);
-        } finally {
-            setLoading(false);
+        if (articlesError) {
+            console.error("Error fetching articles:", articlesError);
+        } else if (articlesData) {
+            const categoryMap = new Map(categoriesData?.map(c => [c.id, c.name]) || []);
+            const processedArticles = articlesData.map(article => ({
+                ...article,
+                categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
+            }));
+            setArticles(processedArticles);
         }
+        setLoading(false);
     }
 
     async function deleteArticle(id: string) {
