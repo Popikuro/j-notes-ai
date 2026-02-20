@@ -28,7 +28,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
     };
 
     return (
-        <div className="prose prose-lg md:prose-xl prose-p:leading-[1.8] prose-li:leading-[1.8] prose-p:mb-8 prose-headings:mt-12 prose-headings:mb-6 dark:prose-invert max-w-none font-outfit text-slate-700 dark:text-slate-300 prose-headings:font-inter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-700">
+        <div className="w-full max-w-none flex flex-col space-y-6 [&_p]:mb-6 [&_p]:leading-[1.8] [&_li]:leading-[1.8] [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:text-4xl [&_h2]:text-3xl [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:text-2xl [&_h3]:mt-8 [&_h3]:mb-4 [&_ul]:list-disc [&_ul]:pl-6 [&_a]:text-indigo-600 dark:[&_a]:text-indigo-400 font-outfit text-slate-700 dark:text-slate-300 [&_h1]:font-inter [&_h1]:font-bold [&_h2]:font-inter [&_h2]:font-bold [&_h3]:font-inter [&_h3]:font-bold text-lg md:text-xl relative">
             {parse(parsedHtml, options)}
         </div>
     );

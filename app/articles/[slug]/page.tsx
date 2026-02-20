@@ -101,7 +101,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </div>
 
             {/* Article Body */}
-            <div className="container max-w-[700px] mx-auto px-6">
+            <div className="container max-w-[700px] mx-auto px-6 flex flex-col items-start w-full">
                 <MarkdownRenderer content={article.content} />
             </div>
 
