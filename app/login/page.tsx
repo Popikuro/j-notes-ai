@@ -30,8 +30,9 @@ export default function LoginPage() {
 
             router.push("/admin");
             router.refresh(); // Refresh to update middleware state
-        } catch (err: any) {
-            setError(err.message || "Failed to sign in. Check your credentials.");
+        } catch (err) {
+            const msg = err instanceof Error ? err.message : "Failed to sign in. Check your credentials.";
+            setError(msg);
             setLoading(false);
         }
     };

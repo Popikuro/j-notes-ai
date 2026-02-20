@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Calendar } from "lucide-react";
-import { createClient } from "@/lib/supabase";
 import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 
@@ -20,12 +19,25 @@ async function getArticle(slug: string) {
 
     const { data, error } = await supabase
         .from("articles")
-        .select("*, categories(name)")
+        .select("*")
         .eq("slug", slug)
         .single();
 
     if (error || !data) {
         return null;
+    }
+
+    // Fetch category manually to avoid foreign key PostgREST issues
+    if (data.category_id) {
+        const { data: categoryData } = await supabase
+            .from("categories")
+            .select("name")
+            .eq("id", data.category_id)
+            .single();
+
+        data.categories = categoryData || { name: "Insight" };
+    } else {
+        data.categories = { name: "Insight" };
     }
 
     return data;

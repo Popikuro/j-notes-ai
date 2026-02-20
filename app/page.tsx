@@ -75,27 +75,27 @@ export default async function Home() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold font-inter mb-8 text-slate-900 dark:text-white leading-tight">
-            Deciphering "Kento-shimasu": The Polite "No"
+            Deciphering &quot;Kento-shimasu&quot;: The Polite &quot;No&quot;
           </h2>
 
           <div className="prose prose-lg dark:prose-invert max-w-none font-outfit text-slate-700 dark:text-slate-300 space-y-6">
             <p className="text-xl leading-relaxed">
-              You've just pitched a brilliant idea to your Japanese counterpart. They nod thoughtfully, smile politely, and say:
+              You&apos;ve just pitched a brilliant idea to your Japanese counterpart. They nod thoughtfully, smile politely, and say:
             </p>
 
             <blockquote className="border-l-4 border-indigo-500 pl-6 py-2 my-8 font-inter text-2xl text-slate-900 dark:text-slate-100 italic bg-slate-50 dark:bg-slate-900/50 rounded-r-lg">
-              "It's an interesting proposal. {" "}
+              &quot;It&apos;s an interesting proposal. &quot;
               <ContextDecoder
                 phrase="検討します"
                 meaning="We will consider it."
                 context="In 90% of business cases, this is a polite refusal. It avoids direct confrontation (saving face) while signaling that the discussion is closed."
               >
                 検討します (kento-shimasu)
-              </ContextDecoder>."
+              </ContextDecoder>.&quot;
             </blockquote>
 
             <p className="text-xl leading-relaxed">
-              If you leave the meeting expecting a follow-up email with next steps, you'll be waiting a long time. This is the essence of Tatemae—the public facade that maintains harmony over directness.
+              If you leave the meeting expecting a follow-up email with next steps, you&apos;ll be waiting a long time. This is the essence of Tatemae—the public facade that maintains harmony over directness.
             </p>
 
             <div className="pt-8">

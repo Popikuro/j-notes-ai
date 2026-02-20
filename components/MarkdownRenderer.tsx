@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { marked } from "marked";
-import parse, { attributesToProps, Element, domToReact } from "html-react-parser";
+import parse, { attributesToProps, Element, domToReact, DOMNode } from "html-react-parser";
 import { ContextDecoder } from "./ContextDecoder";
 
 export function MarkdownRenderer({ content }: { content: string }) {
@@ -11,7 +11,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
     }, [content]);
 
     const options = {
-        replace: (domNode: any) => {
+        replace: (domNode: DOMNode) => {
             if (domNode instanceof Element && domNode.name && domNode.name.toLowerCase() === 'contextdecoder') {
                 const props = attributesToProps(domNode.attribs);
                 return (
@@ -20,7 +20,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
                         meaning={typeof props.meaning === 'string' ? props.meaning : ""}
                         context={typeof props.context === 'string' ? props.context : ""}
                     >
-                        {domToReact(domNode.children as any, options)}
+                        {domToReact(domNode.children as DOMNode[], options)}
                     </ContextDecoder>
                 );
             }

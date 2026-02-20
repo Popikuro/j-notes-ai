@@ -25,6 +25,7 @@ function EditorForm() {
 
     useEffect(() => {
         if (articleId) fetchArticle(articleId);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [articleId]);
 
     async function fetchArticle(id: string) {
@@ -101,7 +102,7 @@ function EditorForm() {
                 resolvedCategoryId = await getOrCreateCategoryId(categoryName);
             }
 
-            const articleData: any = {
+            const articleData: Record<string, unknown> = {
                 title,
                 slug,
                 excerpt,
@@ -139,9 +140,10 @@ function EditorForm() {
             setTimeout(() => setSavedSuccess(false), 3000);
 
             router.refresh();
-        } catch (error: any) {
+        } catch (error) {
             console.error("Save error:", error);
-            alert(error.message || "Failed to save article");
+            const msg = error instanceof Error ? error.message : "Failed to save article";
+            alert(msg);
         } finally {
             setSaving(false);
         }

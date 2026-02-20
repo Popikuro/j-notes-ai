@@ -34,7 +34,7 @@ export function NewsletterSignup() {
 
                 {status === "success" ? (
                     <div className="bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 rounded-full px-6 py-4 flex items-center justify-center gap-2 max-w-md mx-auto font-medium transition-all animate-in zoom-in-95">
-                        <span className="text-xl">✨</span> You're on the list! Expect our next issue soon.
+                        <span className="text-xl">✨</span> You&apos;re on the list! Expect our next issue soon.
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative">
