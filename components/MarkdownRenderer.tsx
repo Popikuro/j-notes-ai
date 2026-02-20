@@ -28,7 +28,7 @@ export function MarkdownRenderer({ content }: { content: string }) {
     };
 
     return (
-        <div className="prose prose-lg dark:prose-invert max-w-none font-outfit text-slate-700 dark:text-slate-300 prose-headings:font-inter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-700">
+        <div className="prose prose-lg md:prose-xl prose-p:leading-[1.8] prose-li:leading-[1.8] prose-p:mb-8 prose-headings:mt-12 prose-headings:mb-6 dark:prose-invert max-w-none font-outfit text-slate-700 dark:text-slate-300 prose-headings:font-inter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 hover:prose-a:text-indigo-700">
             {parse(parsedHtml, options)}
         </div>
     );
