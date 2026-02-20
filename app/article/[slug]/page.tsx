@@ -10,7 +10,7 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 // should ideally use @supabase/ssr createServerClient, but we're keeping it simple for the MVP
 import { createBrowserClient } from '@supabase/ssr'
 
-export const revalidate = 60; // Revalidate every minute
+export const dynamic = 'force-dynamic';
 
 async function getArticle(slug: string) {
     const supabase = createBrowserClient(
