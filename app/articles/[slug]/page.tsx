@@ -73,9 +73,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     return (
         <article className="min-h-screen bg-white dark:bg-[#121212] pb-20 antialiased">
             {/* Header Space */}
-            <div className="bg-slate-50 dark:bg-[#1a1a1a] border-b border-slate-200 dark:border-slate-800 pt-16 pb-12 mb-12">
+            <div className="bg-slate-50 dark:bg-[#1a1a1a] border-b border-slate-200 dark:border-slate-800 pt-20 pb-16 mb-16">
                 <div className="container max-w-[720px] mx-auto px-6 md:px-0">
-                    <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-8 font-outfit">
+                    <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-10 font-outfit">
                         <ArrowLeft className="w-4 h-4" /> Back to all insights
                     </Link>
 
@@ -93,7 +93,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     </h1>
 
                     {article.excerpt && (
-                        <p className="text-xl text-slate-600 dark:text-gray-300 font-outfit italic border-l-4 border-indigo-200 dark:border-indigo-900 pl-4">
+                        <p className="text-2xl text-slate-600 dark:text-gray-300 font-outfit italic border-l-4 border-indigo-200 dark:border-indigo-900 pl-6 leading-relaxed mt-10">
                             {article.excerpt}
                         </p>
                     )}
