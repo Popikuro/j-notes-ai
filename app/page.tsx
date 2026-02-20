@@ -51,7 +51,7 @@ export default function Home() {
 
         <div className="relative z-10 container max-w-5xl mx-auto px-6 text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold font-inter tracking-tight mb-6 drop-shadow-lg">
-            Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">Unspoken</span>.
+            Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Unspoken</span>.
           </h1>
           <p className="text-xl md:text-2xl font-outfit text-slate-300 max-w-2xl mx-auto mb-10 drop-shadow-md">
             Dive deep into Japanese Business Culture, decipher Honne (true feelings) vs Tatemae (public facade), and navigate nuances with AI-powered insights.
