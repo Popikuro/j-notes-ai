@@ -1,65 +1,158 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { ContextDecoder } from "@/components/ContextDecoder";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+
+const CATEGORIES = ["All", "Business", "Slang", "Manners"];
+
+const MOCK_ARTICLES = [
+  {
+    id: 1,
+    title: "Mastering the Art of 'Nemawashi'",
+    category: "Business",
+    excerpt: "Before the meeting starts, the decision has already been made. Learn the invisible art of consensus building in Japanese corporate culture.",
+    slug: "mastering-nemawashi",
+    date: "Feb 20, 2026",
+  },
+  {
+    id: 2,
+    title: "The True Meaning Behind 'Yoroshiku Onegaishimasu'",
+    category: "Manners",
+    excerpt: "It's the most versatile phrase in Japanese business, but what does it actually mean? Decoding the cultural expectations behind the greeting.",
+    slug: "true-meaning-yoroshiku",
+    date: "Feb 18, 2026",
+  },
+  {
+    id: 3,
+    title: "Decoding 'Chotto...': The Ultimate Refusal",
+    category: "Business",
+    excerpt: "When 'a little' means 'absolutely not'. How to navigate polite rejections without losing face.",
+    slug: "decoding-chotto",
+    date: "Feb 15, 2026",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative w-full h-[60vh] min-h-[500px] max-h-[700px] overflow-hidden bg-slate-950 flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero.png"
+            alt="Futuristic Nano Banana Hero"
+            fill
+            className="object-cover opacity-60 mix-blend-luminosity"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+        </div>
+
+        <div className="relative z-10 container max-w-5xl mx-auto px-6 text-center text-white">
+          <h1 className="text-5xl md:text-7xl font-bold font-inter tracking-tight mb-6 drop-shadow-lg">
+            Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">Unspoken</span>.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl font-outfit text-slate-300 max-w-2xl mx-auto mb-10 drop-shadow-md">
+            Dive deep into Japanese Business Culture, decipher Honne (true feelings) vs Tatemae (public facade), and navigate nuances with AI-powered insights.
           </p>
+          <div className="flex justify-center gap-4">
+            <Link href="#featured" className="bg-white text-slate-950 px-8 py-3 rounded-full font-medium hover:bg-slate-200 transition-colors shadow-lg">
+              Start Reading
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Featured Article Preview */}
+      <section id="featured" className="py-24 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div className="container max-w-4xl mx-auto px-6">
+          <div className="flex items-center gap-2 text-neon-purple dark:text-indigo-400 font-semibold mb-6 flex-wrap">
+            <Sparkles className="w-5 h-5" />
+            <span className="uppercase tracking-widest text-sm font-inter">Featured Insight</span>
+            <span className="text-slate-300 dark:text-slate-700 mx-2">•</span>
+            <span className="text-slate-500 font-outfit text-sm">Communication</span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-bold font-inter mb-8 text-slate-900 dark:text-white leading-tight">
+            Deciphering "Kento-shimasu": The Polite "No"
+          </h2>
+
+          <div className="prose prose-lg dark:prose-invert max-w-none font-outfit text-slate-700 dark:text-slate-300 space-y-6">
+            <p className="text-xl leading-relaxed">
+              You've just pitched a brilliant idea to your Japanese counterpart. They nod thoughtfully, smile politely, and say:
+            </p>
+
+            <blockquote className="border-l-4 border-indigo-500 pl-6 py-2 my-8 font-inter text-2xl text-slate-900 dark:text-slate-100 italic bg-slate-50 dark:bg-slate-900/50 rounded-r-lg">
+              "It's an interesting proposal. {" "}
+              <ContextDecoder
+                phrase="検討します"
+                meaning="We will consider it."
+                context="In 90% of business cases, this is a polite refusal. It avoids direct confrontation (saving face) while signaling that the discussion is closed."
+              >
+                検討します (kento-shimasu)
+              </ContextDecoder>."
+            </blockquote>
+
+            <p className="text-xl leading-relaxed">
+              If you leave the meeting expecting a follow-up email with next steps, you'll be waiting a long time. This is the essence of Tatemae—the public facade that maintains harmony over directness.
+            </p>
+
+            <div className="pt-8">
+              <Link href="/article/deciphering-kento-shimasu" className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors bg-indigo-50 dark:bg-indigo-950/30 px-6 py-3 rounded-full">
+                Read full analysis <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Main Content */}
+      <section id="articles" className="py-20 container max-w-5xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 dark:border-slate-800 pb-6 gap-6">
+          <div>
+            <h2 className="text-3xl font-bold font-inter mb-2">Latest Insights</h2>
+            <p className="text-slate-500 font-outfit">Decoding the nuances of Japanese work and life.</p>
+          </div>
+          <div className="flex gap-2 bg-slate-100 dark:bg-slate-900 p-1 rounded-full overflow-x-auto hide-scrollbar">
+            {CATEGORIES.map((cat, i) => (
+              <button
+                key={cat}
+                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${i === 0 ? "bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400" : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {MOCK_ARTICLES.map((article) => (
+            <Link href={`/article/${article.slug}`} key={article.id} className="group flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full">
+                  {article.category}
+                </span>
+                <span className="text-xs text-slate-400 font-outfit">{article.date}</span>
+              </div>
+              <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
+                {article.title}
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm font-outfit line-clamp-3 mb-6 flex-1">
+                {article.excerpt}
+              </p>
+              <div className="flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 opacity-80 group-hover:opacity-100 transition-opacity">
+                Read Article <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 px-6 pb-32">
+        <NewsletterSignup />
+      </section>
     </div>
   );
 }
