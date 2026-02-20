@@ -3,10 +3,8 @@
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Save, Send } from "lucide-react";
+import { ArrowLeft, Save, Send, CheckCircle2 } from "lucide-react";
 import { createClient } from "@/lib/supabase";
-
-type Category = { id: string; name: string };
 
 function EditorForm() {
     const router = useRouter();
@@ -18,35 +16,26 @@ function EditorForm() {
     const [slug, setSlug] = useState("");
     const [excerpt, setExcerpt] = useState("");
     const [content, setContent] = useState("");
-    const [categoryId, setCategoryId] = useState("");
-    const [categories, setCategories] = useState<Category[]>([]);
+    const [categoryName, setCategoryName] = useState("");
     const [published, setPublished] = useState(false);
 
     const [loading, setLoading] = useState(false);
     const [saving, setSaving] = useState(false);
+    const [savedSuccess, setSavedSuccess] = useState(false);
 
     useEffect(() => {
-        fetchCategories();
         if (articleId) fetchArticle(articleId);
     }, [articleId]);
 
-    async function fetchCategories() {
-        const { data } = await supabase.from("categories").select("id, name");
-        if (data) {
-            setCategories(data);
-            if (data.length > 0 && !categoryId) setCategoryId(data[0].id);
-        }
-    }
-
     async function fetchArticle(id: string) {
         setLoading(true);
-        const { data } = await supabase.from("articles").select("*").eq("id", id).single();
+        const { data } = await supabase.from("articles").select("*, categories(name)").eq("id", id).single();
         if (data) {
             setTitle(data.title);
             setSlug(data.slug);
             setExcerpt(data.excerpt || "");
             setContent(data.content);
-            setCategoryId(data.category_id);
+            setCategoryName(data.categories?.name || "");
             setPublished(data.published);
         }
         setLoading(false);
@@ -59,37 +48,90 @@ function EditorForm() {
         }
     }, [title, articleId]);
 
-    async function handleSave(publish: boolean) {
+    // Helper to get or create category
+    async function getOrCreateCategoryId(name: string): Promise<string | null> {
+        if (!name.trim()) return null;
+
+        // Check if category exists
+        const { data: existingData } = await supabase
+            .from("categories")
+            .select("id")
+            .ilike("name", name.trim())
+            .maybeSingle();
+
+        if (existingData) {
+            return existingData.id;
+        }
+
+        // Create new category if it doesn't exist
+        const slug = name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+        const { data: newData, error: insertError } = await supabase
+            .from("categories")
+            .insert([{ name: name.trim(), slug }])
+            .select("id")
+            .single();
+
+        if (insertError) {
+            console.error("Failed to create category:", insertError);
+            return null;
+        }
+
+        return newData.id;
+    }
+
+    async function handleSave(publishStatus: boolean) {
         if (!title || !slug || !content) {
             alert("Title, slug, and content are required.");
             return;
         }
 
         setSaving(true);
-        const articleData: any = {
-            title,
-            slug,
-            excerpt,
-            content,
-            published: publish,
-        };
-
-        if (categoryId) {
-            articleData.category_id = categoryId;
-        }
+        setSavedSuccess(false);
 
         try {
+            // First resolve the category ID
+            let resolvedCategoryId = null;
+            if (categoryName.trim()) {
+                resolvedCategoryId = await getOrCreateCategoryId(categoryName);
+            }
+
+            const articleData: any = {
+                title,
+                slug,
+                excerpt,
+                content,
+                published: publishStatus,
+            };
+
+            if (resolvedCategoryId) {
+                articleData.category_id = resolvedCategoryId;
+            } else {
+                // If they cleared the category input, set it to null
+                articleData.category_id = null;
+            }
+
             if (articleId) {
                 // Update
                 const { error } = await supabase.from("articles").update(articleData).eq("id", articleId);
                 if (error) throw error;
             } else {
                 // Insert
-                const { error } = await supabase.from("articles").insert([articleData]);
+                const { data, error } = await supabase.from("articles").insert([articleData]).select("id").single();
                 if (error) throw error;
+
+                // If new article, update URL so subsequent saves are updates
+                if (data) {
+                    router.replace(`/admin/editor?id=${data.id}`);
+                }
             }
 
-            router.push("/admin");
+            // Sync local state
+            setPublished(publishStatus);
+
+            // Show success styling momentarily
+            setSavedSuccess(true);
+            setTimeout(() => setSavedSuccess(false), 3000);
+
             router.refresh();
         } catch (error: any) {
             console.error("Save error:", error);
@@ -107,33 +149,44 @@ function EditorForm() {
                 <Link href="/admin" className="text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center gap-2 font-medium transition-colors">
                     <ArrowLeft className="w-4 h-4" /> Back to Library
                 </Link>
-                <div className="flex gap-3">
+                <div className="flex items-center gap-4">
+                    {savedSuccess && (
+                        <span className="text-emerald-600 dark:text-emerald-400 font-medium font-outfit text-sm flex items-center gap-1 animate-in fade-in slide-in-from-right-4">
+                            <CheckCircle2 className="w-4 h-4" /> Saved Successfully!
+                        </span>
+                    )}
                     <button
                         onClick={() => handleSave(false)}
                         disabled={saving}
                         className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors shadow-sm disabled:opacity-50"
                     >
-                        <Save className="w-4 h-4" /> Save Draft
+                        <Save className="w-4 h-4" /> {published ? "Revert to Draft" : "Save Draft"}
                     </button>
                     <button
                         onClick={() => handleSave(true)}
                         disabled={saving}
                         className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg font-medium flex items-center gap-2 transition-colors shadow-sm disabled:opacity-50"
                     >
-                        <Send className="w-4 h-4" /> Publish
+                        <Send className="w-4 h-4" /> {published ? "Update Live" : "Publish"}
                     </button>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 space-y-6">
-                    <div className="bg-white dark:bg-slate-950 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div className="bg-white dark:bg-slate-950 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 relative">
+                        {/* Status badge embedded in editor */}
+                        <div className="absolute top-6 right-6">
+                            <span className={`inline-flex px-2 py-1 rounded text-xs font-medium uppercase tracking-wider ${published ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400' : 'bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400'}`}>
+                                {published ? 'Published Live' : 'Draft Mode'}
+                            </span>
+                        </div>
                         <input
                             type="text"
                             placeholder="Article Title..."
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="w-full text-4xl font-bold font-inter bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder-slate-300 dark:placeholder-slate-700 mb-6"
+                            className="w-full pr-32 text-4xl font-bold font-inter bg-transparent border-none outline-none text-slate-900 dark:text-white placeholder-slate-300 dark:placeholder-slate-700 mb-6"
                         />
                         <div className="h-px w-full bg-slate-100 dark:bg-slate-800 mb-6"></div>
 
@@ -163,15 +216,14 @@ function EditorForm() {
 
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Category</label>
-                                <select
-                                    value={categoryId}
-                                    onChange={(e) => setCategoryId(e.target.value)}
+                                <input
+                                    type="text"
+                                    value={categoryName}
+                                    onChange={(e) => setCategoryName(e.target.value)}
+                                    placeholder="e.g. Business, Etiquette..."
                                     className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                >
-                                    {categories.map(c => (
-                                        <option key={c.id} value={c.id}>{c.name}</option>
-                                    ))}
-                                </select>
+                                />
+                                <p className="text-xs text-slate-500 mt-1">Type a new category and it will be created automatically.</p>
                             </div>
 
                             <div>
