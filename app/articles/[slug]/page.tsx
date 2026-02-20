@@ -74,7 +74,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <article className="min-h-screen bg-white dark:bg-slate-950 pb-20">
             {/* Header Space */}
             <div className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 pt-16 pb-12 mb-12">
-                <div className="container max-w-[700px] mx-auto px-6">
+                <div className="container max-w-[720px] mx-auto px-6 md:px-0">
                     <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-8 font-outfit">
                         <ArrowLeft className="w-4 h-4" /> Back to all insights
                     </Link>
@@ -101,12 +101,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </div>
 
             {/* Article Body */}
-            <div className="container max-w-[700px] mx-auto px-6 flex flex-col items-start w-full">
+            <div className="container max-w-[720px] mx-auto px-6 md:px-0 flex flex-col items-start w-full">
                 <MarkdownRenderer content={article.content} />
             </div>
 
             {/* Reading End Newsletter */}
-            <div className="container max-w-[700px] mx-auto px-6 mt-20 pt-16 border-t border-slate-200 dark:border-slate-800">
+            <div className="container max-w-[720px] mx-auto px-6 md:px-0 mt-20 pt-16 border-t border-slate-200 dark:border-slate-800">
                 <NewsletterSignup />
             </div>
         </article>
