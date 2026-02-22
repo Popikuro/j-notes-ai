@@ -8,21 +8,7 @@ const supabase = createClient(
 );
 
 async function testFetch() {
-    const { data: allArticles } = await supabase.from("articles").select("slug");
-    console.log("All slugs:", allArticles);
-
-    if (allArticles && allArticles.length > 0) {
-        const testSlug = allArticles[0].slug;
-        console.log(`Testing fetch for slug: ${testSlug}`);
-        const { data, error } = await supabase
-            .from("articles")
-            .select("*, categories(name)")
-            .eq("slug", testSlug)
-            .single();
-
-        console.log("Data:", data);
-        console.log("Error:", error);
-    }
+    const { data, error } = await supabase.from("articles").select("content").eq("slug", "the-magic-word-otsukaresama").single();
+    if(data) console.log(data.content);
 }
-
 testFetch();
