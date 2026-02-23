@@ -128,17 +128,22 @@ export default async function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles?.map((article) => (
-            <Link href={`/articles/${article.slug}`} key={article.id} className="group flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full">
+            <div key={article.id} className="group relative flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
+              <div className="flex items-center gap-3 mb-4 relative z-30 pointer-events-auto">
+                <Link
+                  href={`/category/${(article.categories?.name || "Insight").toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                  className="relative z-30 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/80 px-3 py-1 rounded-full border border-transparent hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors cursor-pointer block"
+                >
                   {article.categories?.name || "Insight"}
-                </span>
+                </Link>
                 <span className="text-xs text-slate-400 font-outfit">
                   {new Date(article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </span>
               </div>
               <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
-                {article.title}
+                <Link href={`/articles/${article.slug}`} className="before:absolute before:inset-0 before:z-10 focus:outline-none">
+                  {article.title}
+                </Link>
               </h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm font-outfit line-clamp-3 mb-6 flex-1">
                 {article.excerpt}
@@ -146,7 +151,7 @@ export default async function Home() {
               <div className="flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 opacity-80 group-hover:opacity-100 transition-opacity">
                 Read Article <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </Link>
+            </div>
           ))}
 
           {articles?.length === 0 && (
