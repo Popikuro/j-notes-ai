@@ -24,9 +24,9 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${activeCategory === cat
+                            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${activeCategory === cat
                                 ? "bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400"
-                                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                                : "text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:opacity-80"
                                 }`}
                         >
                             {cat}
