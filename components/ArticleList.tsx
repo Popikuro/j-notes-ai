@@ -19,19 +19,21 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                     <h2 className="text-3xl font-bold font-inter mb-2">Latest Insights</h2>
                     <p className="text-slate-500 font-outfit">Decoding the nuances of Japanese work and life.</p>
                 </div>
-                <div className="flex overflow-x-auto whitespace-nowrap scrollbar-hide -webkit-overflow-scrolling-touch gap-2 bg-slate-100 dark:bg-slate-900 p-1.5 pr-10 rounded-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" style={{ overflowX: 'auto', display: 'flex', whiteSpace: 'nowrap' }}>
-                    {categoryNames.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`shrink-0 snap-start px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${activeCategory === cat
-                                ? "bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400"
-                                : "text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:opacity-80"
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
+                <div className="w-full overflow-hidden">
+                    <div className="flex overflow-x-auto whitespace-nowrap scrollbar-hide py-2 px-4 gap-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                        {categoryNames.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setActiveCategory(cat)}
+                                className={`flex-shrink-0 shrink-0 snap-start px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${activeCategory === cat
+                                    ? "bg-indigo-50 dark:bg-indigo-900/40 shadow-sm text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800"
+                                    : "bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-300 dark:hover:border-indigo-700"
+                                    }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
 
