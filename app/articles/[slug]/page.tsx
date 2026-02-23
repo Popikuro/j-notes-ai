@@ -64,8 +64,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     }
 
     // Format date
-    const formattedDate = new Date(article.created_at).toLocaleDateString('en-US', {
-        month: 'short',
+    const formattedDate = new Date(article.published_at || article.created_at).toLocaleDateString('en-US', {
+        month: 'long',
         day: 'numeric',
         year: 'numeric'
     });
