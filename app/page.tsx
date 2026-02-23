@@ -6,7 +6,8 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ArticleList } from "@/components/ArticleList";
 import { createBrowserClient } from '@supabase/ssr'
 
-export const revalidate = 60; // Revalidate every minute
+export const revalidate = 0; // Force dynamic rendering, bypass cache
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const supabase = createBrowserClient(
