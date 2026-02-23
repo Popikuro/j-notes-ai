@@ -19,7 +19,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                     <h2 className="text-3xl font-bold font-inter mb-2">Latest Insights</h2>
                     <p className="text-slate-500 font-outfit">Decoding the nuances of Japanese work and life.</p>
                 </div>
-                <div className="flex flex-nowrap gap-2 bg-slate-100 dark:bg-slate-900 p-1.5 pr-10 md:pr-1.5 rounded-full overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div className="flex overflow-x-auto whitespace-nowrap scrollbar-hide -webkit-overflow-scrolling-touch gap-2 bg-slate-100 dark:bg-slate-900 p-1.5 pr-10 rounded-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {categoryNames.map((cat) => (
                         <button
                             key={cat}
@@ -45,7 +45,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                                 {article.categories?.name || "Insight"}
                             </span>
                             <span className="text-xs text-slate-400 font-outfit">
-                                {new Date(article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                {new Date(article.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                             </span>
                         </div>
                         <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
