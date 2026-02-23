@@ -19,12 +19,12 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                     <h2 className="text-3xl font-bold font-inter mb-2">Latest Insights</h2>
                     <p className="text-slate-500 font-outfit">Decoding the nuances of Japanese work and life.</p>
                 </div>
-                <div className="flex gap-2 bg-slate-100 dark:bg-slate-900 p-1 rounded-full overflow-x-auto hide-scrollbar">
+                <div className="flex gap-2 bg-slate-100 dark:bg-slate-900 p-1.5 rounded-full overflow-x-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {categoryNames.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${activeCategory === cat
+                            className={`shrink-0 snap-start px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${activeCategory === cat
                                 ? "bg-white dark:bg-slate-800 shadow-sm text-indigo-600 dark:text-indigo-400"
                                 : "text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:opacity-80"
                                 }`}
