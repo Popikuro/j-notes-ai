@@ -8,7 +8,7 @@ const supabase = createClient(
 );
 
 async function testFetch() {
-    const { data, error } = await supabase.from("articles").select("content").eq("slug", "the-magic-word-otsukaresama").single();
-    if(data) console.log(data.content);
+    const { data } = await supabase.from("articles").select("content").eq("slug", "the-magic-word-otsukaresama").single();
+    if (data) console.log(data.content);
 }
 testFetch();

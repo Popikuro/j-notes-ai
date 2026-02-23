@@ -3,9 +3,10 @@ import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 dotenv.config({ path: '.env.local' });
 
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    supabaseKey
 );
 
 async function main() {
@@ -22,7 +23,7 @@ async function main() {
     // Find or create category
     let categoryId = null;
     const catName = "Philosophy";
-    
+
     const { data: existingCat } = await supabase
         .from("categories")
         .select("id")
@@ -41,7 +42,7 @@ async function main() {
     }
 
     if (categoryId) {
-        (articleData as any).category_id = categoryId;
+        Object.assign(articleData, { category_id: categoryId });
     }
 
     const { data: existingArticle } = await supabase
