@@ -17,6 +17,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "J-Notes AI",
   description: "Learn Japanese Business Culture nuances with AI.",
+  icons: {
+    icon: '/j-note-new-v1.jpg',
+  },
 };
 
 export default function RootLayout({
