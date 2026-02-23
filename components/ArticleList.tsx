@@ -39,12 +39,11 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                 {filteredArticles?.map((article) => (
                     <div key={article.id} className="group relative flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
                         <div className="flex items-center gap-3 mb-4">
-                            <Link
-                                href={`/category/${(article.categories?.name || "Insight").toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                                className="z-10 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/80 px-3 py-1 rounded-full border border-transparent hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors cursor-pointer block"
+                            <span
+                                className="z-10 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent"
                             >
                                 {article.categories?.name || "Insight"}
-                            </Link>
+                            </span>
                             <span className="text-xs text-slate-400 font-outfit">
                                 {new Date(article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                             </span>
