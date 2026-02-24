@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="border-t border-slate-200 dark:border-slate-800 py-12 mt-20">
             <div className="container mx-auto max-w-5xl px-6 flex flex-col items-center justify-center text-center text-sm text-slate-500 font-outfit">
                 <div className="relative h-16 w-16 mb-6 overflow-hidden rounded-full border border-indigo-500/20 shadow-sm bg-slate-100 dark:bg-slate-800">
-                    <Image src="/j-note-v100.jpg" alt="J-Notes Mascot" fill className="object-cover" />
+                    <img src="/j-note1.jpg?v=2" alt="J-Notes Mascot" className="w-full h-full object-cover" />
                 </div>
                 <p>© {new Date().getFullYear()} J-Notes AI. All rights reserved.</p>
                 <p className="mt-2 text-xs">Mastering Japanese Business Culture, one nuance at a time.</p>
