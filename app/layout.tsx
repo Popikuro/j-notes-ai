@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   title: "J-Notes AI",
   description: "Learn Japanese Business Culture nuances with AI.",
   icons: {
-    icon: '/j-note1.jpg',
-    shortcut: '/j-note1.jpg',
-    apple: '/j-note1.jpg',
+    icon: '/j-note-v100.jpg',
+    shortcut: '/j-note-v100.jpg',
+    apple: '/j-note-v100.jpg',
   },
 };
 

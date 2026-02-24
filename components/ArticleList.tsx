@@ -47,7 +47,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                                 {article.categories?.name || "Insight"}
                             </span>
                             <span className="text-xs text-slate-400 font-outfit">
-                                {article.slug === 'nindo-naruto-way-of-the-ninja' ? 'February 23, 2026' : new Date(article.published_at || article.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
+                                {article.slug === 'nindo-naruto-way-of-the-ninja' ? 'February 24, 2026' : new Date(article.published_at || article.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
                             </span>
                         </div>
                         <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">

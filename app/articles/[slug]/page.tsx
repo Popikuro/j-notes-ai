@@ -65,7 +65,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
     // Format date
     const formattedDate = article.slug === 'nindo-naruto-way-of-the-ninja'
-        ? 'February 23, 2026'
+        ? 'February 24, 2026'
         : new Date(article.published_at || article.created_at).toLocaleDateString('en-US', {
             month: 'long',
             day: 'numeric',
