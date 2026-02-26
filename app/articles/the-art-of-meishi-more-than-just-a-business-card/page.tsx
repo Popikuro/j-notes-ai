@@ -19,24 +19,16 @@ export default function MeishiPage() {
 
     const content = `In Japan, a business card (Meishi) is considered the "face" of the person. It's not just a piece of paper; it's an extension of their identity.
 
----
-
 ## The Exchange Ritual
-When you receive a card, you are literally receiving a piece of that person's professional soul.
-
-<ContextDecoder phrase="名刺交換" meaning="Meishi Koukan: The formal exchange of business cards. There are strict rules on who goes first and how to hold the card." />
-
----
+When you receive a card, you are literally receiving a piece of that person's professional soul. The act of <ContextDecoder phrase="名刺交換" meaning="Meishi Koukan: The formal exchange of business cards. There are strict rules on who goes first and how to hold the card.">Meishi Koukan</ContextDecoder> is a formal exchange that sets the tone for your entire professional relationship.
 
 ## Key Rules to Remember
-1. **The Hand-off:** Always use two hands. Never slide the card across a table.
-2. **The Hierarchy:** The person of lower status (or the seller) should position their card lower than the other person's.
-
-<ContextDecoder phrase="下座" meaning="Gezaza: The 'lower seat' or humble position. In Meishi exchange, it means holding your card slightly lower than your partner's to show respect." />
-
+The ritual has strict guidelines that must be followed carefully:
+1. **The Hand-off:** Always use two hands to present and receive. Never slide the card across a table.
+2. **The Hierarchy:** The person of lower status (or the seller) should position their card lower than the other person's, taking the <ContextDecoder phrase="下座" meaning="Gezaza: The 'lower seat' or humble position. In Meishi exchange, it means holding your card slightly lower than your partner's to show respect.">Gezaza</ContextDecoder> position to show respect.
 3. **The Aftermath:** Don't put the card away immediately! Leave it on the table in front of you during the meeting.
 
-<ContextDecoder phrase="顔に泥を塗る" meaning="To smear mud on someone's face. Metaphorically, to humiliate or bring shame to someone—exactly what you do if you treat a Meishi poorly!" />
+If you treat a Meishi poorly, you risk <ContextDecoder phrase="顔に泥を塗る" meaning="To smear mud on someone's face. Metaphorically, to humiliate or bring shame to someone—exactly what you do if you treat a Meishi poorly!">smearing mud on someone's face</ContextDecoder>, a metaphor for deep humiliation. 
 
 Mastering this ritual shows you respect the person, not just the deal.`;
 

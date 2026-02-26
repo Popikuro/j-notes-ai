@@ -19,21 +19,16 @@ export default function OtsukaresamaPage() {
 
     const content = `In Japan, the workplace culture relies heavily on mutual recognition. There is one phrase you will hear dozens of times a day that covers almost every social interaction.
 
----
-
 ## What it means
-<ContextDecoder phrase="お疲れ様" meaning="Literally 'You look tired,' but used as Hello, Goodbye, or Thank you for your hard work. It recognizes the effort the other person has put in." />
-
----
+The phrase <ContextDecoder phrase="お疲れ様" meaning="Literally 'You look tired,' but used as Hello, Goodbye, or Thank you for your hard work. It recognizes the effort the other person has put in.">Otsukaresama</ContextDecoder> is the ultimate magic word. While it literally translates to "You look tired," it is actually a profound acknowledgment of someone's hard work, functioning as a universal token of appreciation in Japanese business culture.
 
 ## When to use it
+It is incredibly versatile and can be used in almost any professional scenario:
 1. **Arriving at the office:** It functions as a greeting to colleagues already working.
-2. **Passing someone in the hall:** A polite way to acknowledge their presence.
-3. **Ending a meeting:** To thank everyone for their time and contribution.
+2. **Passing someone in the hall:** A polite way to acknowledge their presence instead of saying "hello".
+3. **Ending a meeting:** To thank everyone for their time and contribution before dispersing.
 
-Understanding the "Air" (Kuuki) behind this phrase is the first step to mastering Japanese business manners.
-
-<ContextDecoder phrase="空気を読む" meaning="Reading the air. The ability to understand the unspoken mood or social cues in a situation." />
+Understanding the "Air" (Kuuki) behind this phrase is the first step to mastering Japanese business manners. A key concept here is <ContextDecoder phrase="空気を読む" meaning="Reading the air. The ability to understand the unspoken mood or social cues in a situation.">Kuuki-wo-yomu</ContextDecoder>, which dictates the subtle timing and delivery of your greetings.
 
 Give it a try tomorrow!`;
 
