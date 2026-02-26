@@ -16,9 +16,9 @@ export function ContextDecoder({ phrase, meaning, context, children }: ContextDe
         <Tooltip.Provider delayDuration={200}>
             <Tooltip.Root>
                 <Tooltip.Trigger asChild>
-                    <span className="inline-flex items-center gap-1 cursor-help border-b-2 border-dashed border-indigo-400 dark:border-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors px-1 rounded-sm text-slate-900 dark:text-slate-100 font-medium">
-                        {children}
-                        <Info className="w-3 h-3 text-indigo-500" />
+                    <span className="inline-flex items-center gap-1 cursor-help text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors rounded-sm">
+                        {children || phrase}
+                        <Info className="w-3.5 h-3.5 text-indigo-500/70" />
                     </span>
                 </Tooltip.Trigger>
                 <Tooltip.Portal>

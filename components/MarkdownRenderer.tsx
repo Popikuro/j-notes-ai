@@ -7,7 +7,9 @@ import { ContextDecoder } from "./ContextDecoder";
 
 export function MarkdownRenderer({ content }: { content: string }) {
     const parsedHtml = useMemo(() => {
-        return marked.parse(content) as string;
+        // Force self-closing on any unclosed ContextDecoder tags to prevent catastrophic layout wrapping
+        const preProcessed = content.replace(/<ContextDecoder([^>]*[^\/])>/gi, '<ContextDecoder$1 />');
+        return marked.parse(preProcessed) as string;
     }, [content]);
 
     const options = {
