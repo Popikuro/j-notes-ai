@@ -31,6 +31,7 @@ export function NewsletterSignup() {
                 <p className="text-slate-300 font-outfit text-sm max-w-lg mx-auto mb-2">
                     Join 2,500+ professionals receiving weekly AI-decoded breakdowns of Japanese business etiquette.
                 </p>
+            </div>
 
             <div className="relative z-10 w-full md:w-auto">
                 {status === "success" ? (
