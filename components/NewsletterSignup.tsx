@@ -20,11 +20,11 @@ export function NewsletterSignup() {
     };
 
     return (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl px-6 py-4 md:px-10 md:py-4 text-center max-w-3xl mx-auto shadow-2xl relative overflow-hidden flex flex-col items-center justify-center gap-4">
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl px-6 py-16 md:px-10 md:py-16 text-center max-w-3xl mx-auto shadow-2xl relative overflow-hidden flex flex-col items-center justify-center gap-8">
             <div className="absolute top-0 right-0 p-32 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 p-32 bg-purple-500/10 blur-3xl rounded-full pointer-events-none" />
 
-            <div className="relative z-10 w-full m-0 py-[20px] flex flex-col items-center justify-center gap-3">
+            <div className="relative z-10 w-full flex flex-col items-center justify-center gap-4">
                 <h3 className="text-2xl font-bold font-inter text-white leading-none m-0">
                     Master the nuance implicitly.
                 </h3>
