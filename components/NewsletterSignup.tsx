@@ -24,11 +24,11 @@ export function NewsletterSignup() {
             <div className="absolute top-0 right-0 p-32 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 p-32 bg-purple-500/10 blur-3xl rounded-full pointer-events-none" />
 
-            <div className="relative z-10 w-full mb-0">
-                <h3 className="text-2xl font-bold font-inter text-white">
+            <div className="relative z-10 w-full m-0 py-[20px] flex flex-col items-center justify-center gap-3">
+                <h3 className="text-2xl font-bold font-inter text-white leading-none m-0">
                     Master the nuance implicitly.
                 </h3>
-                <p className="text-slate-300 font-outfit text-sm max-w-lg mx-auto">
+                <p className="text-slate-300 font-outfit text-sm max-w-lg mx-auto leading-none m-0">
                     Join 2,500+ professionals receiving weekly AI-decoded breakdowns of Japanese business etiquette.
                 </p>
             </div>
