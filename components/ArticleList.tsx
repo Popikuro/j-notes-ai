@@ -42,7 +42,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                     <div key={article.id} className="group relative flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
                         <div className="flex items-center gap-3 mb-4">
                             <span
-                                className="z-10 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent"
+                                className="z-10 inline-flex items-center justify-center whitespace-nowrap text-[11px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent shadow-sm"
                             >
                                 {article.categories?.name || "Insight"}
                             </span>
