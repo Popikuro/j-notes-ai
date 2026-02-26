@@ -20,15 +20,15 @@ export function NewsletterSignup() {
     };
 
     return (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto shadow-2xl relative overflow-hidden">
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl px-8 py-4 md:px-12 md:py-6 text-center max-w-3xl mx-auto shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 p-32 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 p-32 bg-purple-500/10 blur-3xl rounded-full pointer-events-none" />
 
             <div className="relative z-10">
-                <h3 className="text-3xl font-bold font-inter text-white mb-4">
+                <h3 className="text-3xl font-bold font-inter text-white mb-2 mt-2">
                     Master the nuance implicitly.
                 </h3>
-                <p className="text-slate-300 font-outfit mb-8 max-w-xl mx-auto">
+                <p className="text-slate-300 font-outfit mb-6 max-w-xl mx-auto">
                     Join 2,500+ professionals receiving weekly AI-decoded breakdowns of Japanese business etiquette, slang, and cultural context.
                 </p>
 
