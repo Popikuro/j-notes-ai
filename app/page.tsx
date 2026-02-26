@@ -114,7 +114,7 @@ export default async function Home() {
       <ArticleList articles={articles} categoryNames={categoryNames} />
 
       {/* Newsletter Section */}
-      <section className="py-20 px-6 pb-32">
+      <section className="py-10 px-6 pb-10">
         <NewsletterSignup />
       </section>
     </div>
