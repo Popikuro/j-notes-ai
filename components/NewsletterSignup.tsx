@@ -20,15 +20,15 @@ export function NewsletterSignup() {
     };
 
     return (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl px-6 py-16 md:px-10 md:py-16 text-center max-w-3xl mx-auto shadow-2xl relative overflow-hidden flex flex-col items-center justify-center gap-8">
+        <div className="bg-slate-900 border border-slate-800 rounded-[2rem] px-6 py-24 md:px-12 md:py-24 text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden flex flex-col items-center justify-center gap-10">
             <div className="absolute top-0 right-0 p-32 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 p-32 bg-purple-500/10 blur-3xl rounded-full pointer-events-none" />
 
-            <div className="relative z-10 w-full flex flex-col items-center justify-center gap-4">
-                <h3 className="text-2xl font-bold font-inter text-white leading-none m-0">
+            <div className="relative z-10 w-full flex flex-col items-center justify-center gap-6">
+                <h3 className="text-4xl md:text-5xl lg:text-[60px] font-extrabold font-inter text-white leading-[1.1] m-0 tracking-tight">
                     Master the nuance implicitly.
                 </h3>
-                <p className="text-slate-300 font-outfit text-sm max-w-lg mx-auto leading-none m-0">
+                <p className="text-lg md:text-xl text-slate-200 font-outfit max-w-2xl mx-auto leading-tight m-0">
                     Join 2,500+ professionals receiving weekly AI-decoded breakdowns of Japanese business etiquette.
                 </p>
             </div>
