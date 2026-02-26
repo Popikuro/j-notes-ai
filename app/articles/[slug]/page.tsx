@@ -110,7 +110,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     return (
         <article className="min-h-screen bg-white dark:bg-[#121212] pb-20 antialiased">
             {/* Header Space */}
-            <div className="bg-slate-50 dark:bg-[#1a1a1a] border-b border-slate-200 dark:border-slate-800 pt-20 pb-16 mb-16">
+            <div className="bg-slate-50 dark:bg-[#1a1a1a] border-b border-slate-200 dark:border-slate-800 pt-32 pb-24 mb-20">
                 <div className="container max-w-[720px] mx-auto px-6 md:px-0">
                     <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-10 font-outfit">
                         <ArrowLeft className="w-4 h-4" /> Back to all insights
