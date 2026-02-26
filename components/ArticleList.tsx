@@ -40,13 +40,13 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredArticles?.map((article) => (
                     <div key={article.id} className="group relative flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
-                        <div className="flex items-baseline gap-3 mb-4">
+                        <div className="flex items-center gap-3 mb-4">
                             <span
-                                className="z-10 inline-flex items-center justify-center whitespace-nowrap text-[11px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent shadow-sm"
+                                className="z-10 inline-flex items-center justify-center whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent shadow-sm"
                             >
                                 {article.categories?.name || "Insight"}
                             </span>
-                            <span className="text-[11px] font-bold uppercase tracking-wider font-inter text-slate-500 dark:text-slate-400">
+                            <span className="whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-wider font-inter tabular-nums text-slate-500 dark:text-slate-400">
                                 {new Date(article.published_at || article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
                             </span>
                         </div>
