@@ -17,12 +17,12 @@ export default function Footer() {
                 </div>
                 <p>© {new Date().getFullYear()} J-Notes AI. All rights reserved.</p>
                 <p className="mt-2 text-xs">Mastering Japanese Business Culture, one nuance at a time.</p>
-                <div className="mt-8 flex items-center justify-center gap-6 text-xs text-slate-400 dark:text-slate-500 font-inter">
-                    <a href="https://x.com/messages/compose?recipient_id=1962561585097977856" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                        Contact Us
+                <div className="mt-8 flex items-center justify-center gap-10 text-sm text-slate-500 font-inter font-medium">
+                    <a href="https://x.com/messages/compose?recipient_id=1962561585097977856" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
+                        Contact
                     </a>
-                    <span className="opacity-50">•</span>
-                    <a href="/privacy" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                    <span className="opacity-40">•</span>
+                    <a href="/privacy" className="hover:text-indigo-500 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
                         Privacy Policy
                     </a>
                 </div>
