@@ -57,6 +57,40 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
 }
 
+function formatArticleTitle(title: string) {
+    // Match (Romanized) JapaneseCharacters
+    const regex = /\(([^)]+)\)\s*([\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]+)/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(title)) !== null) {
+        if (match.index > lastIndex) {
+            parts.push(title.substring(lastIndex, match.index));
+        }
+        
+        const romanized = match[1];
+        const japanese = match[2];
+        
+        parts.push(
+            <span key={match.index}>
+                {romanized}{" "}
+                <span className="font-normal text-slate-500 dark:text-slate-400 inline-block px-1">
+                    [{japanese}]
+                </span>
+            </span>
+        );
+        
+        lastIndex = regex.lastIndex;
+    }
+    
+    if (lastIndex < title.length) {
+        parts.push(title.substring(lastIndex));
+    }
+    
+    return parts.length > 0 ? parts : title;
+}
+
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
     const resolvedParams = await params;
     const article = await getArticle(resolvedParams.slug);
@@ -92,7 +126,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-bold font-inter leading-tight text-slate-900 dark:text-white mb-6">
-                        {article.title}
+                        {formatArticleTitle(article.title)}
                     </h1>
 
                     {article.excerpt && (
