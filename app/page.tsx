@@ -67,48 +67,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Article Preview */}
-      <section id="featured" className="py-24 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
-        <div className="container max-w-4xl mx-auto px-6">
-          <div className="flex items-center gap-2 text-neon-purple dark:text-indigo-400 font-semibold mb-6 flex-wrap">
-            <Sparkles className="w-5 h-5" />
-            <span className="uppercase tracking-widest text-sm font-inter">Featured Insight</span>
-            <span className="text-slate-300 dark:text-slate-700 mx-2">•</span>
-            <span className="text-slate-500 font-outfit text-sm">Communication</span>
-          </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold font-inter mb-8 text-slate-900 dark:text-white leading-tight">
-            Deciphering &quot;Kento-shimasu&quot;: The Polite &quot;No&quot;
-          </h2>
-
-          <div className="prose prose-lg dark:prose-invert max-w-none font-outfit text-slate-700 dark:text-slate-300 space-y-6">
-            <p className="text-xl leading-relaxed">
-              You&apos;ve just pitched a brilliant idea to your Japanese counterpart. They nod thoughtfully, smile politely, and say:
-            </p>
-
-            <blockquote className="border-l-4 border-indigo-500 pl-6 py-2 my-8 font-inter text-2xl text-slate-900 dark:text-slate-100 italic bg-slate-50 dark:bg-slate-900/50 rounded-r-lg">
-              &quot;It&apos;s an interesting proposal. &quot;
-              <ContextDecoder
-                phrase="検討します"
-                meaning="We will consider it."
-                context="In 90% of business cases, this is a polite refusal. It avoids direct confrontation (saving face) while signaling that the discussion is closed."
-              >
-                検討します (kento-shimasu)
-              </ContextDecoder>.&quot;
-            </blockquote>
-
-            <p className="text-xl leading-relaxed">
-              If you leave the meeting expecting a follow-up email with next steps, you&apos;ll be waiting a long time. This is the essence of Tatemae—the public facade that maintains harmony over directness.
-            </p>
-
-            <div className="pt-8">
-              <Link href="/articles/deciphering-kento-shimasu" className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors bg-indigo-50 dark:bg-indigo-950/30 px-6 py-3 rounded-full">
-                Read full analysis <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Main Content */}
       <ArticleList articles={articles} categoryNames={categoryNames} />
