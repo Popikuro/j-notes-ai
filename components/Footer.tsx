@@ -12,12 +12,12 @@ export default function Footer() {
                         <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                         </svg>
-                        Follow @JNotes_AI
+                        X Follow
                     </a>
                 </div>
                 <p>© {new Date().getFullYear()} J-Notes AI. All rights reserved.</p>
                 <p className="mt-2 text-xs">Mastering Japanese Business Culture, one nuance at a time.</p>
-                <div className="mt-8 flex items-center justify-center gap-12 text-sm md:text-base font-bold text-slate-700 dark:text-slate-200 font-inter tracking-wide">
+                <div className="mt-14 flex items-center justify-center gap-12 text-sm md:text-base font-bold text-slate-700 dark:text-slate-200 font-inter tracking-wide">
                     <a href="https://x.com/messages/compose?recipient_id=1962561585097977856" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
                         Contact
                     </a>
