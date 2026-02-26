@@ -4,6 +4,40 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+function formatArticleTitle(title: string) {
+    // Match (Romanized) JapaneseCharacters
+    const regex = /\(([^)]+)\)\s*([\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]+)/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(title)) !== null) {
+        if (match.index > lastIndex) {
+            parts.push(title.substring(lastIndex, match.index));
+        }
+        
+        const romanized = match[1];
+        const japanese = match[2];
+        
+        parts.push(
+            <span key={match.index}>
+                {romanized}{" "}
+                <span className="font-normal text-slate-500 dark:text-slate-400 inline-block px-1">
+                    [{japanese}]
+                </span>
+            </span>
+        );
+        
+        lastIndex = regex.lastIndex;
+    }
+    
+    if (lastIndex < title.length) {
+        parts.push(title.substring(lastIndex));
+    }
+    
+    return parts.length > 0 ? parts : title;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ArticleList({ articles, categoryNames }: { articles: any[], categoryNames: string[] }) {
     const [activeCategory, setActiveCategory] = useState("All");
@@ -52,7 +86,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                         </div>
                         <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
                             <Link href={`/articles/${article.slug}`} className="hover:underline focus:outline-none">
-                                {article.title}
+                                {formatArticleTitle(article.title)}
                             </Link>
                         </h3>
                         <p className="text-slate-600 dark:text-slate-400 text-sm font-outfit line-clamp-3 mb-6 flex-1">
