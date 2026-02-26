@@ -20,7 +20,8 @@ export default async function Home() {
     .from("articles")
     .select("*")
     .eq("published", true)
-    .order("created_at", { ascending: false });
+    .lte("published_at", new Date().toISOString())
+    .order("published_at", { ascending: false });
 
   // Fetch categories
   const { data: categories } = await supabase

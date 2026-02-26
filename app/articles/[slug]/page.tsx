@@ -21,6 +21,8 @@ async function getArticle(slug: string) {
         .from("articles")
         .select("*")
         .eq("slug", slug)
+        .eq("published", true)
+        .lte("published_at", new Date().toISOString())
         .single();
 
     if (error || !data) {
