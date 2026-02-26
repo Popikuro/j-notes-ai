@@ -46,7 +46,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                             >
                                 {article.categories?.name || "Insight"}
                             </span>
-                            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                            <span className="text-[11px] font-bold uppercase tracking-wider font-inter tabular-nums text-slate-500 dark:text-slate-400 leading-none flex items-center pt-[1px]">
                                 {new Date(article.published_at || article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
                             </span>
                         </div>
