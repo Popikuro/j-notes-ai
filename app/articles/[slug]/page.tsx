@@ -117,11 +117,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     </Link>
 
                     <div className="flex items-center gap-3 mb-6">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full">
+                        <span className="z-10 inline-flex items-center justify-center whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent shadow-sm">
                             {article.categories?.name || "Insight"}
                         </span>
-                        <span className="flex items-center gap-1 text-xs text-slate-500 font-outfit">
-                            <Calendar className="w-3 h-3" /> {formattedDate}
+                        <span className="whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-wider font-inter tabular-nums text-slate-500 dark:text-slate-400">
+                            {formattedDate}
                         </span>
                     </div>
 
@@ -130,7 +130,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     </h1>
 
                     {article.excerpt && (
-                        <p className="text-2xl text-slate-600 dark:text-gray-300 font-outfit italic border-l-4 border-indigo-200 dark:border-indigo-900 pl-6 leading-relaxed mt-10">
+                        <p className="text-2xl text-slate-600 dark:text-gray-300 font-outfit italic border-l-4 border-indigo-200 dark:border-indigo-900 pl-6 leading-relaxed mt-4">
                             {article.excerpt}
                         </p>
                     )}
@@ -138,13 +138,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </div>
 
             {/* Article Body */}
-            <div className="container max-w-[720px] mx-auto px-6 md:px-0 flex flex-col items-start w-full">
+            <div className="container max-w-[720px] mx-auto px-6 md:px-0 flex flex-col items-start w-full leading-relaxed">
                 <MarkdownRenderer content={article.content} />
             </div>
 
             {/* Reading End Newsletter */}
-            <div className="container max-w-[720px] mx-auto px-6 md:px-0 mt-20 pt-16 border-t border-slate-200 dark:border-slate-800">
-                <NewsletterSignup />
+            <div className="container max-w-[720px] mx-auto px-6 md:px-0 pb-16 pt-16 border-t border-slate-200 dark:border-slate-800 mt-16">
+                <div className="w-full relative">
+                    <NewsletterSignup />
+                </div>
             </div>
         </article>
     );
