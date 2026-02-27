@@ -32,8 +32,16 @@ export default async function Home() {
 
   // Manually map categories to articles
   const categoryMap = new Map(categories?.map(c => [c.id, c.name]) || []);
+  
+  // --- EMERGENCY FRONTEND DATABASE OVERRIDE ---
+  const overrideTitles: Record<string, string> = {
+    'the-magic-word-otsukaresama': 'Otsukaresama: More Than "Good Job" [お疲れ様です]',
+    'the-art-of-meishi-more-than-just-a-business-card': 'Meishi: The Soul of a Business Card [名刺]'
+  };
+
   const articles = articlesData?.map(article => ({
     ...article,
+    title: overrideTitles[article.slug] || article.title,
     categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
   })) || [];
 
