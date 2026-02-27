@@ -21,6 +21,8 @@ const dictionary: Record<string, string> = {
 };
 
 export function SmartTitle({ title }: { title: string }) {
+    if (!title) return null;
+
     // 1. Clean the title of any previously hardcoded bracketed Japanese text 
     // to prevent double-rendering if the DB already has it
     const cleanTitle = title.replace(/\s*\[.*?\]/g, '');
