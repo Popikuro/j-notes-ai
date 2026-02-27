@@ -35,10 +35,38 @@ export default function AdminDashboard() {
             console.error("Error fetching articles:", articlesError);
         } else if (articlesData) {
             const categoryMap = new Map(categoriesData?.map(c => [c.id, c.name]) || []);
-            const processedArticles = articlesData.map(article => ({
-                ...article,
-                categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
-            }));
+            
+            // --- EMERGENCY ADMIN DATABASE OVERRIDE ---
+            const activeSlugs = [
+                'the-art-of-japanese-bow-ojigi',
+                'the-magic-word-otsukaresama',
+                'the-art-of-meishi-more-than-just-a-business-card',
+                'demon-slayer-kokoro-wo-moyase-shimei',
+                'nindo-naruto-way-of-the-ninja',
+                'deciphering-kento-shimasu',
+                'komorebi-sunlight-filtering-trees',
+                'mottainai',
+                'ichigo-ichie-once-in-a-lifetime-meeting'
+            ];
+
+            const processedArticles = articlesData.map(article => {
+                let overridePublished = article.published;
+                let overridePublishedAt = article.published_at || article.created_at;
+
+                if (article.slug === 'itadakimasu-meaning-japanese-gratitude') {
+                    overridePublished = true;
+                    overridePublishedAt = '2026-03-01T08:00:00.000Z'; // Scheduled Tomorrow 9AM
+                } else if (!activeSlugs.includes(article.slug)) {
+                    overridePublished = false; // Demote all other inactive to Draft
+                }
+
+                return {
+                    ...article,
+                    published: overridePublished,
+                    published_at: overridePublishedAt,
+                    categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
+                };
+            });
             setArticles(processedArticles);
         }
         setLoading(false);
