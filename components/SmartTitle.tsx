@@ -23,32 +23,48 @@ const dictionary: Record<string, string> = {
 export function SmartTitle({ title }: { title: string }) {
     if (!title) return null;
 
-    // 1. Clean the title of any previously hardcoded bracketed Japanese text 
-    // to prevent double-rendering if the DB already has it
-    const cleanTitle = title.replace(/\s*\[.*?\]/g, '');
+    // 1. If the title ALREADY has explicit [Japanese] brackets from the Database, intercept it here.
+    const hasBrackets = /\[(.*?)\]/.exec(title);
 
-    // 2. Find the first matching keyword from the dictionary
+    if (hasBrackets) {
+        // Split precisely around the brackets
+        const parts = title.split(/(\[.*?\])/);
+        return (
+            <>
+                {parts.map((part, index) => {
+                    if (part.startsWith('[') && part.endsWith(']')) {
+                        return (
+                            <span key={index} className="font-bold text-indigo-600 dark:text-indigo-400 inline-block px-1 ml-1">
+                                {part}
+                            </span>
+                        );
+                    }
+                    return <React.Fragment key={index}>{part}</React.Fragment>;
+                })}
+            </>
+        );
+    }
+
+    // 2. Otherwise, check the dictionary for automation
     let matchedKeyword = null;
     let matchedJapanese = null;
 
     for (const [key, jp] of Object.entries(dictionary)) {
-        // Use word boundaries to ensure we only match the full keyword
         const regex = new RegExp(`\\b${key}\\b`, 'i');
-        if (regex.test(cleanTitle)) {
+        if (regex.test(title)) {
             matchedKeyword = key;
             matchedJapanese = jp;
             break;
         }
     }
 
-    // If no keyword is found, just return the clean text
     if (!matchedKeyword) {
-        return <>{cleanTitle}</>;
+        return <>{title}</>;
     }
 
-    // 3. Inject the Japanese characters in an elegant span right after the keyword
+    // 3. Inject the Japanese characters dynamically into the string using bold impact formatting
     const splitRegex = new RegExp(`(\\b${matchedKeyword}\\b)`, 'i');
-    const parts = cleanTitle.split(splitRegex);
+    const parts = title.split(splitRegex);
 
     return (
         <>
@@ -57,7 +73,7 @@ export function SmartTitle({ title }: { title: string }) {
                     return (
                         <span key={index}>
                             {part}
-                            <span className="font-normal text-slate-500 dark:text-slate-400 inline-block px-1 ml-1">
+                            <span className="font-bold text-indigo-600 dark:text-indigo-400 inline-block px-1 ml-1">
                                 [{matchedJapanese}]
                             </span>
                         </span>
