@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { SmartTitle } from "./SmartTitle";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ArticleList({ articles, categoryNames }: { articles: any[], categoryNames: string[] }) {
@@ -52,7 +53,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                         </div>
                         <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
                             <Link href={`/articles/${article.slug}`} className="hover:underline focus:outline-none">
-                                {article.title}
+                                <SmartTitle title={article.title} />
                             </Link>
                         </h3>
                         <p className="text-slate-600 dark:text-slate-400 text-sm font-outfit line-clamp-3 mb-6 flex-1">

@@ -92,7 +92,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-bold font-inter leading-tight text-slate-900 dark:text-white mb-6">
-                        {article.title}
+                        <SmartTitle title={article.title} />
                     </h1>
 
                     {article.excerpt && (
