@@ -2,7 +2,7 @@
 
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { Info } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 interface ContextDecoderProps {
     phrase: string;
@@ -12,11 +12,19 @@ interface ContextDecoderProps {
 }
 
 export function ContextDecoder({ phrase, meaning, context, children }: ContextDecoderProps) {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <Tooltip.Provider delayDuration={200}>
-            <Tooltip.Root>
+            <Tooltip.Root open={isOpen} onOpenChange={setIsOpen}>
                 <Tooltip.Trigger asChild>
-                    <span className="inline-flex items-center gap-1 cursor-help text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors rounded-sm">
+                    <span 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setIsOpen(!isOpen);
+                        }}
+                        className="inline-flex items-center gap-1 cursor-help text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors rounded-sm border-b border-dashed border-indigo-400/60 dark:border-indigo-500/60 hover:border-indigo-600 dark:hover:border-indigo-300 pb-[1px]"
+                    >
                         {children || phrase}
                         <Info className="w-3.5 h-3.5 text-indigo-500/70" />
                     </span>
