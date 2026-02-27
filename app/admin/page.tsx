@@ -10,6 +10,7 @@ type Article = {
     title: string;
     slug: string;
     published: boolean;
+    published_at?: string;
     created_at: string;
 };
 
@@ -102,12 +103,24 @@ export default function AdminDashboard() {
                                         {article.title}
                                     </td>
                                     <td className="p-4">
-                                        <span className={`inline-flex px-2 py-1 rounded text-xs font-medium uppercase tracking-wider ${article.published ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400' : 'bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400'}`}>
-                                            {article.published ? 'Published' : 'Draft'}
-                                        </span>
+                                        {(() => {
+                                            const isScheduled = article.published && article.published_at && new Date(article.published_at) > new Date();
+                                            const statusText = !article.published ? 'Draft' : (isScheduled ? 'Scheduled' : 'Published');
+                                            const colorClass = !article.published 
+                                                ? 'bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400' 
+                                                : (isScheduled 
+                                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400' 
+                                                    : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400');
+                                            
+                                            return (
+                                                <span className={`inline-flex px-2 py-1 rounded text-xs font-medium uppercase tracking-wider ${colorClass}`}>
+                                                    {statusText}
+                                                </span>
+                                            );
+                                        })()}
                                     </td>
                                     <td className="p-4 text-sm text-slate-500 font-outfit">
-                                        {new Date(article.created_at).toLocaleDateString()}
+                                        {new Date(article.published_at || article.created_at).toLocaleDateString()}
                                     </td>
                                     <td className="p-4 flex items-center justify-end gap-2">
                                         {article.published && (
