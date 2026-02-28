@@ -206,7 +206,10 @@ The phrase "Gochisosama" is the essential counterpart to "Itadakimasu." Just as 
 
 ## Recognizing the Feast
 
-![Osushi-chan Gochisosama Cyber Mode](/osushi-gochisosama.png?v=1)
+<div class="flex flex-col items-center mb-10 w-full text-center">
+  <img src="/gochisosama_solo_gratitude.png" alt="Gochisosama Solo Gratitude Cyber Mode" class="w-full max-w-2xl rounded-2xl shadow-xl mx-auto border border-slate-200 dark:border-slate-800" />
+  <p class="text-sm text-slate-500 font-outfit mt-4 italic max-w-xl px-4 mx-auto">A profound gesture of gratitude: Osushi-chan expresses Gochisosama in the serene glow of the Cyber-Washitsu.</p>
+</div>
 
 By placing your hands together in *Gassho* [合掌] and saying <ContextDecoder phrase="ご馳走様" meaning="Thank you for the meal / It was a feast" context="Said after finishing a meal to express satisfaction and gratitude to the host or chef">Gochisosama</ContextDecoder>, you are explicitly acknowledging the profound effort that went into preparing the food. 
 
@@ -237,7 +240,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     if (!article) return { title: "Article Not Found" };
 
-    const ogImage = article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting' ? '/ichigo_ichie_cyber_tea.png' : undefined;
+    const ogImage = article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting' ? '/ichigo_ichie_cyber_tea.png' :
+        (article.slug === 'gochisosama-thank-you-for-the-meal' || article.slug === 'gochisosama') ? '/gochisosama_solo_gratitude.png' : undefined;
 
     return {
         title: `${article.title} | J-Notes AI`,
