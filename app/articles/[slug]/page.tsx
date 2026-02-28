@@ -18,7 +18,7 @@ async function getArticle(slug: string) {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
 
-    const { data, error } = await supabase
+    let { data, error } = await supabase
         .from("articles")
         .select("*")
         .eq("slug", slug)
