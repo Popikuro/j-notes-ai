@@ -60,7 +60,7 @@ async function getArticle(slug: string) {
     if (slug === 'the-art-of-japanese-bow-ojigi') {
         const header = '## The Three Degrees of Respect';
         if (data.content.includes(header) && !data.content.includes('osushi-bowing-guide.png')) {
-            data.content = data.content.replace(header, header + '\n\n![Osushi-chan Bowing Guide](/osushi-bowing-guide.png?v=5)\n');
+            data.content = data.content.replace(header, header + '\n\n![Osushi-chan Bowing Guide Cyber Mode](/osushi-bowing-guide.png?v=7)\n');
         }
     } else if (slug === 'the-magic-word-otsukaresama') {
         data.title = 'Otsukaresama: More Than "Good Job" [お疲れ様です]';
@@ -113,7 +113,7 @@ Have you ever wondered why Japanese people always put their hands together and s
 
 ## The Spirit of the Meal
 
-![Itadakimasu Infographic](/osushi-itadakimasu.png?v=1)
+![Osushi-chan Itadakimasu Cyber Mode](/osushi-itadakimasu.png?v=2)
 
 Before taking the first bite, it is customary to say <ContextDecoder phrase="いただきます" meaning="I humbly receive" context="Said before eating. It shows gratitude to the plants, animals, farmers, and cooks who provided the meal.">Itadakimasu</ContextDecoder>. It acknowledges that you are taking life to sustain your own, and expresses deep gratitude for the entire chain of effort that brought the food to your plate.
 
