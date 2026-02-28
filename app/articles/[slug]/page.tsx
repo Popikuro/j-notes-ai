@@ -148,6 +148,23 @@ Rooted in Buddhist and Shinto animism, <ContextDecoder phrase="勿体無い" mea
 
 Wangari Maathai, the Nobel Peace Prize laureate, famously adopted "Mottainai" as a global environmental slogan, proving that this ancient Japanese concept holds the key to modern sustainability.
         `.trim();
+    } else if (slug === 'komorebi-sunlight-filtering-through-trees' || slug === 'komorebi') {
+        data.title = 'Komorebi: The Ephemeral Beauty of Light [木漏れ日]';
+        data.content = `
+Some concepts in Japanese culture are so deeply tied to nature that they require an entire sentence to translate into English. "Komorebi" is perhaps the most famous example of this untranslatable beauty.
+
+## The Dance of Light and Shadow
+
+![Osushi-chan Komorebi Cyber Mode](/osushi-komorebi.png?v=3)
+
+<ContextDecoder phrase="木漏れ日" meaning="Sunlight filtering through the leaves of trees" context="Used to describe the interplay between the light and the leaves, creating a unique, fleeting pattern of illumination.">Komorebi</ContextDecoder> is composed of three kanji characters: 木 (tree), 漏れ (leaking or escaping), and 日 (sun or day). It captures the visual poetry of golden sunlight catching the edge of a leaf before dappling the forest floor.
+
+## Why It Matters
+
+1. **Mono no Aware**: It is a perfect physical manifestation of *Mono no Aware* (the pathos of things)—an appreciation for the fleeting, impermanent nature of life. The pattern of light is never the same twice.
+2. **Presence**: It forces the observer into a state of absolute mindfulness. You cannot save or capture the true feeling of Komorebi; you can only experience it in that exact moment.
+3. **Nature Connection**: It reflects a culture that finds profound, sacred beauty in the quiet, organic background rather than the loud, man-made foreground. 
+        `.trim();
     } else if (slug === 'gochisosama-thank-you-for-the-meal' || slug === 'gochisosama') {
         data.title = 'Gochisosama: The Satisfaction of Gratitude [ご馳走様]';
         data.content = `
