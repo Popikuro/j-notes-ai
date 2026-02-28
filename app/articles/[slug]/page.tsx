@@ -57,6 +57,8 @@ async function getArticle(slug: string) {
 
 ## The Silent Acknowledgment
 
+![Osushi-chan Otsukaresama Cyber Mode](/osushi-otsukaresama.png?v=4)
+
 While literally translating to "You must be tired," its actual meaning is much closer to a profound expression of communal appreciation. Saying <ContextDecoder phrase="Otsukaresama" meaning="Thank you for your hard work" context="Used to acknowledge shared effort and build solidarity in the workplace">Otsukaresama</ContextDecoder> acknowledges the burden of the work and the shared dedication of the team.
 
 ## When to Use It
@@ -80,7 +82,7 @@ In Japanese business protocol, a <ContextDecoder phrase="Meishi" meaning="Busine
 
 ## The Ritual of Exchange
 
-![Osushi-chan Business Card Etiquette](/osushi-meishi-premium.png?v=1)
+![Osushi-chan Business Card Etiquette Cyber Mode](/osushi-meishi-premium.png?v=2)
 
 The actual exchange of the Meishi is a choreographed dance of respect:
 
