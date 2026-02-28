@@ -218,6 +218,14 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
 2. **Hands Together**: Close your eyes and bow your head slightly.
 3. **Say It Clearly**: Whether to the chef at a sushi counter or your family at the dinner table.
         `.trim();
+    } else if (slug === 'ichigo-ichie-once-in-a-lifetime-meeting') {
+        if (data && data.content && !data.content.includes('ichigo_ichie_cyber_tea.png')) {
+            const imageHtml = `<div class="flex flex-col items-center mb-10 w-full text-center">
+  <img src="/ichigo_ichie_cyber_tea.png" alt="Ichigo Ichie Cyber Tea" class="w-full max-w-3xl rounded-2xl shadow-xl mx-auto border border-slate-200 dark:border-slate-800" />
+  <p class="text-sm text-slate-500 font-outfit mt-4 italic max-w-2xl px-4 mx-auto">A fateful encounter: Iconic Osushi-chan meets the dignified Hamachi-chan in a serene Cyber-Tea Room. This is the essence of Ichigo Ichie.</p>
+</div>\n\n`;
+            data.content = imageHtml + data.content;
+        }
     }
 
     return data;
@@ -229,9 +237,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     if (!article) return { title: "Article Not Found" };
 
+    const ogImage = article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting' ? '/ichigo_ichie_cyber_tea.png' : undefined;
+
     return {
         title: `${article.title} | J-Notes AI`,
         description: article.excerpt || "A deep dive into Japanese Business Culture nuances.",
+        ...(ogImage && {
+            openGraph: {
+                images: [ogImage],
+            }
+        })
     };
 }
 
