@@ -15,20 +15,18 @@ export default function Footer() {
                         Follow
                     </a>
                 </div>
-                <div className="mb-6 flex items-center justify-center w-full text-sm md:text-base font-bold text-slate-700 dark:text-slate-200 font-inter tracking-wide">
-                    <div className="flex-1 text-right">
-                        <a href="https://x.com/messages/compose?recipient_id=1962561585097977856" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
-                            Contact
-                        </a>
-                    </div>
-                    <div className="px-6 md:px-8 opacity-30 font-normal">
-                        •
-                    </div>
-                    <div className="flex-1 text-left">
-                        <a href="/privacy" className="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
-                            Privacy Policy
-                        </a>
-                    </div>
+                <div className="mb-6 flex items-center justify-center w-full text-sm md:text-base font-bold text-slate-700 dark:text-slate-200 font-inter tracking-wide gap-4 md:gap-6">
+                    <a href="https://x.com/messages/compose?recipient_id=1962561585097977856" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
+                        Contact
+                    </a>
+                    <span className="opacity-30 font-normal text-xs md:text-sm">•</span>
+                    <a href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
+                        About
+                    </a>
+                    <span className="opacity-30 font-normal text-xs md:text-sm">•</span>
+                    <a href="/privacy" className="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-all duration-300">
+                        Privacy Policy
+                    </a>
                 </div>
                 <div className="opacity-60 flex flex-col items-center">
                     <p>© {new Date().getFullYear()} J-Notes AI. All rights reserved.</p>
