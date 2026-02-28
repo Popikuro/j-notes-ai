@@ -191,6 +191,10 @@ When a Japanese professional speaks of their personal "belief" or "philosophy" t
 
 You will never hear a Japanese executive declare their "Nindo" in a loud, boastful manner. It is fundamentally an internal pledge. The next time you witness a Japanese artisan performing a relatively simple task with absolute, terrifying precision, you aren't just watching someone work. You are watching someone execute their Nindo.
         `.trim();
+    } else if (slug === 'deciphering-kento-shimasu' || slug === 'kento-shimasu') {
+        if (data && data.content && !data.content.includes('osushi-kento-shimasu.png')) {
+            data.content = `![Osushi-chan in a necktie, smiling subtly at a Cyber-Meeting table, deciphering 'Kento Shimasu'](/osushi-kento-shimasu.png?v=1)\n\n` + data.content;
+        }
     } else if (slug === 'gochisosama-thank-you-for-the-meal' || slug === 'gochisosama') {
         data.title = 'Gochisosama: The Satisfaction of Gratitude [ご馳走様]';
         data.content = `
