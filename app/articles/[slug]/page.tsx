@@ -26,7 +26,19 @@ async function getArticle(slug: string) {
         .lte("published_at", new Date().toISOString())
         .single();
 
-    if (error || !data) {
+    if (slug === 'gochisosama-thank-you-for-the-meal' || slug === 'gochisosama') {
+        // Hardcode the Gochisosama article to bypass Supabase completely since it's not in the DB yet
+        data = {
+            id: 9999,
+            title: 'Gochisosama: The Satisfaction of Gratitude [ご馳走様]',
+            slug: 'gochisosama-thank-you-for-the-meal',
+            content: '',
+            published_at: new Date().toISOString(),
+            created_at: new Date().toISOString(),
+            category_id: null
+        };
+        error = null;
+    } else if (error || !data) {
         return null;
     }
 
@@ -135,6 +147,25 @@ Rooted in Buddhist and Shinto animism, <ContextDecoder phrase="勿体無い" mea
 ## A Global Mindset
 
 Wangari Maathai, the Nobel Peace Prize laureate, famously adopted "Mottainai" as a global environmental slogan, proving that this ancient Japanese concept holds the key to modern sustainability.
+        `.trim();
+    } else if (slug === 'gochisosama-thank-you-for-the-meal' || slug === 'gochisosama') {
+        data.title = 'Gochisosama: The Satisfaction of Gratitude [ご馳走様]';
+        data.content = `
+The phrase "Gochisosama" is the essential counterpart to "Itadakimasu." Just as a meal begins with gratitude, it must end with it.
+
+## Recognizing the Feast
+
+![Osushi-chan Gochisosama Cyber Mode](/osushi-gochisosama.png?v=1)
+
+By placing your hands together in *Gassho* [合掌] and saying <ContextDecoder phrase="ご馳走様" meaning="Thank you for the meal / It was a feast" context="Said after finishing a meal to express satisfaction and gratitude to the host or chef">Gochisosama</ContextDecoder>, you are explicitly acknowledging the profound effort that went into preparing the food. 
+
+## The Meaning of the Characters
+
+The characters 馳走 (Chisou) historically refer to "running around"—representing the physical effort the host went through to gather ingredients and prepare the feast. The prefix "Go" and suffix "Sama" elevate this effort to a deeply respectful level. 
+
+1. **Clear Your Plate**: The most sincere way to say Gochisosama is to leave nothing behind.
+2. **Hands Together**: Close your eyes and bow your head slightly.
+3. **Say It Clearly**: Whether to the chef at a sushi counter or your family at the dinner table.
         `.trim();
     }
 
