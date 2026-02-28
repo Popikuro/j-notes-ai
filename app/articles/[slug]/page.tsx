@@ -148,14 +148,14 @@ Rooted in Buddhist and Shinto animism, <ContextDecoder phrase="勿体無い" mea
 
 Wangari Maathai, the Nobel Peace Prize laureate, famously adopted "Mottainai" as a global environmental slogan, proving that this ancient Japanese concept holds the key to modern sustainability.
         `.trim();
-    } else if (slug === 'komorebi-sunlight-filtering-through-trees' || slug === 'komorebi') {
+    } else if (slug === 'komorebi-sunlight-filtering-through-trees' || slug === 'komorebi' || slug === 'komorebi-sunlight-filtering-trees') {
         data.title = 'Komorebi: The Ephemeral Beauty of Light [木漏れ日]';
         data.content = `
+![Osushi-chan enjoying Komorebi (sunlight filtering through trees)](/osushi-komorebi.png?v=4)
+
 Some concepts in Japanese culture are so deeply tied to nature that they require an entire sentence to translate into English. "Komorebi" is perhaps the most famous example of this untranslatable beauty.
 
 ## The Dance of Light and Shadow
-
-![Osushi-chan Komorebi Cyber Mode](/osushi-komorebi.png?v=3)
 
 <ContextDecoder phrase="木漏れ日" meaning="Sunlight filtering through the leaves of trees" context="Used to describe the interplay between the light and the leaves, creating a unique, fleeting pattern of illumination.">Komorebi</ContextDecoder> is composed of three kanji characters: 木 (tree), 漏れ (leaking or escaping), and 日 (sun or day). It captures the visual poetry of golden sunlight catching the edge of a leaf before dappling the forest floor.
 
