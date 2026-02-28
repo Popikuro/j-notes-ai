@@ -80,6 +80,8 @@ In Japanese business protocol, a <ContextDecoder phrase="Meishi" meaning="Busine
 
 ## The Ritual of Exchange
 
+![Osushi-chan Business Card Etiquette](/osushi-meishi-premium.png?v=1)
+
 The actual exchange of the Meishi is a choreographed dance of respect:
 
 1. **Present with Both Hands**: Always hold the card by the top corners with both hands, ensuring the text is facing the recipient so they can read it immediately.
