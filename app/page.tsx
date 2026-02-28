@@ -36,7 +36,8 @@ export default async function Home() {
   // --- EMERGENCY FRONTEND DATABASE OVERRIDE ---
   const overrideTitles: Record<string, string> = {
     'the-magic-word-otsukaresama': 'Otsukaresama: More Than "Good Job" [お疲れ様です]',
-    'the-art-of-meishi-more-than-just-a-business-card': 'Meishi: The Soul of a Business Card [名刺]'
+    'the-art-of-meishi-more-than-just-a-business-card': 'Meishi: The Soul of a Business Card [名刺]',
+    'itadakimasu-meaning-japanese-gratitude': 'Itadakimasu: The Spiritual Gratitude Hidden in Every Japanese Meal [いただきます]'
   };
 
   const articles = articlesData?.map(article => ({

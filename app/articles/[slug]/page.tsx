@@ -90,6 +90,27 @@ The actual exchange of the Meishi is a choreographed dance of respect:
 
 Treating the Meishi with the utmost reverence from the very first second sets the tone for a respectful, long-lasting business relationship. It is the first test of your professional character.
         `.trim();
+    } else if (slug === 'itadakimasu-meaning-japanese-gratitude') {
+        data.title = 'Itadakimasu: The Spiritual Gratitude Hidden in Every Japanese Meal [いただきます]';
+        data.content = `
+Have you ever wondered why Japanese people always put their hands together and say something before they eat? It is more than just "bon appetit."
+
+## The Spirit of the Meal
+
+![Itadakimasu Infographic](/osushi-itadakimasu.png?v=1)
+
+Before taking the first bite, it is customary to say <ContextDecoder phrase="いただきます" meaning="I humbly receive" context="Said before eating. It shows gratitude to the plants, animals, farmers, and cooks who provided the meal.">Itadakimasu</ContextDecoder>. It acknowledges that you are taking life to sustain your own, and expresses deep gratitude for the entire chain of effort that brought the food to your plate.
+
+## How to Do It Right
+
+1. **Hands Together**: Clasp your hands in a prayer-like position gently in front of your chest.
+2. **Bow Slightly**: Lower your head just a fraction.
+3. **Say It Clearly**: Just loud enough for your dining partners to hear. 
+
+## Beyond the Table
+
+This concept ties heavily back to *Mottainai* (the regret of waste). Because you have recognized the sacrifice required for the meal, it becomes culturally unacceptable to leave food unfinished. 
+        `.trim();
     }
 
     return data;
