@@ -6,8 +6,7 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { ArticleList } from "@/components/ArticleList";
 import { createBrowserClient } from '@supabase/ssr'
 
-export const revalidate = 0; // Force dynamic rendering, bypass cache
-export const dynamic = 'force-dynamic';
+export const revalidate = 60; // ISR cache set to 60 seconds for AdSense speed compliance
 
 export default async function Home() {
   const supabase = createBrowserClient(

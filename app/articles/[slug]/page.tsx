@@ -10,7 +10,7 @@ import { SmartTitle } from "@/components/SmartTitle";
 // should ideally use @supabase/ssr createServerClient, but we're keeping it simple for the MVP
 import { createBrowserClient } from '@supabase/ssr'
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60; // ISR cache set to 60 seconds for AdSense speed compliance
 
 async function getArticle(slug: string) {
     const supabase = createBrowserClient(
