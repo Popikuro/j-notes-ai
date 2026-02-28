@@ -115,6 +115,27 @@ Before taking the first bite, it is customary to say <ContextDecoder phrase="い
 
 This concept ties heavily back to *Mottainai* (the regret of waste). Because you have recognized the sacrifice required for the meal, it becomes culturally unacceptable to leave food unfinished. 
         `.trim();
+    } else if (slug === 'mottainai') {
+        data.title = 'Mottainai: The Deep Respect for All Things [もったいない]';
+        data.content = `
+At its core, "Mottainai" is often translated as "What a waste," but this captures only a fraction of its true spiritual depth. It is a philosophy of gratitude.
+
+## The Philosophy of Value
+
+![Osushi-chan Mottainai Cyber Mode](/osushi-mottainai.png?v=1)
+
+Rooted in Buddhist and Shinto animism, <ContextDecoder phrase="もったいない" meaning="A sense of regret concerning waste" context="Used when something's intrinsic value is not properly utilized">Mottainai</ContextDecoder> acknowledges that every object—from a single grain of rice to a piece of paper—contains a spirit or was created through immense effort and sacrifice.
+
+## How It Manifests
+
+1. **Food**: Eating every single grain of rice in your bowl to honor the farmers and the life given.
+2. **Objects**: Repairing broken items (like the art of *Kintsugi*) instead of discarding them.
+3. **Time & Effort**: Not wasting the time or hard work someone dedicates to you.
+
+## A Global Mindset
+
+Wangari Maathai, the Nobel Peace Prize laureate, famously adopted "Mottainai" as a global environmental slogan, proving that this ancient Japanese concept holds the key to modern sustainability.
+        `.trim();
     }
 
     return data;
