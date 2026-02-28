@@ -37,7 +37,8 @@ export default async function Home() {
     'the-magic-word-otsukaresama': 'Otsukaresama: More Than "Good Job" [お疲れ様です]',
     'the-art-of-meishi-more-than-just-a-business-card': 'Meishi: The Soul of a Business Card [名刺]',
     'itadakimasu-meaning-japanese-gratitude': 'Itadakimasu: The Spiritual Gratitude Hidden in Every Japanese Meal [いただきます]',
-    'mottainai': 'Mottainai: The Deep Respect for All Things [勿体無い]'
+    'mottainai': 'Mottainai: The Deep Respect for All Things [勿体無い]',
+    'nindo-naruto-way-of-the-ninja': 'Nindo [忍道]: The Way of the Ninja and Finding Your Belief'
   };
 
   const articles = articlesData?.map(article => ({

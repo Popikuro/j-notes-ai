@@ -166,7 +166,8 @@ Some concepts in Japanese culture are so deeply tied to nature that they require
 3. **Nature Connection**: It reflects a culture that finds profound, sacred beauty in the quiet, organic background rather than the loud, man-made foreground. 
         `.trim();
     } else if (slug === 'nindo-naruto-way-of-the-ninja' || slug === 'nindo') {
-        data.title = 'Nindo (忍道): The Way of the Ninja in Modern Japanese Business';
+        data.title = 'Nindo [忍道]: The Way of the Ninja and Finding Your Belief';
+        data.excerpt = 'Discover how the ancient samurai and ninja philosophy of Nindo (The Way of the Ninja) translates into unwavering personal belief and dedication in modern Japanese business.';
         data.content = `
 ![Cyber-Samurai Osushi-chan in a neon Dojo, representing Nindo (Way of the Ninja) and personal belief](/osushi-samurai-nindo.png?v=2)
 
