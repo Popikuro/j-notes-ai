@@ -229,6 +229,11 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
 </div>\n\n`;
             data.content = imageHtml + data.content;
         }
+    } else if (slug === 'yaoyorozu-no-kami-japanese-animism') {
+        if (data && data.content && !data.content.includes('/articles/mottainai')) {
+            const ctaHtml = `\n\n---\n\n**Deep Dive:** If you want to learn more about how this spiritual respect translates into daily life, explore the profound philosophy of Mottainai (Too Good to Waste) [here](/articles/mottainai).`;
+            data.content = data.content + ctaHtml;
+        }
     }
 
     return data;
