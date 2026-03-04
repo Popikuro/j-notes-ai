@@ -235,6 +235,17 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
             data.content = data.content + ctaHtml;
         }
     }
+    if (slug === 'wabi-sabi-japanese-aesthetic-imperfection' && data && data.content && !data.content.includes('/article_visual_')) {
+        data.content = `![Osushi-chan in a digital void with floating Kanji representing Wabi-Sabi](/article_visual_2026-03-01.png?v=1)\n\n` + data.content;
+    } else if (slug === 'yaoyorozu-no-kami-japanese-animism' && data && data.content && !data.content.includes('/article_visual_')) {
+        data.content = `![Osushi-chan in high-tech Zazen posture with blue data-light representing Yaoyorozu](/article_visual_2026-03-02.png?v=1)\n\n` + data.content;
+    } else if (slug === 'aizuchi-japanese-art-of-listening' && data && data.content && !data.content.includes('/article_visual_')) {
+        data.content = `![Osushi-chan looking at a digital sunrise representing Aizuchi](/article_visual_2026-03-03.png?v=1)\n\n` + data.content;
+    } else if (slug === 'omotenashi-japanese-selfless-hospitality' && data && data.content && !data.content.includes('/article_visual_')) {
+        data.content = `![Osushi-chan offering a glowing cyber tea cup representing Omotenashi](/article_visual_2026-03-04.png?v=1)\n\n` + data.content;
+    } else if (slug === 'kaizen-toyota-way-continuous-improvement' && data && data.content && !data.content.includes('/article_visual_')) {
+        data.content = `![Osushi-chan forging glowing neon gears representing Kaizen](/article_visual_2026-03-05.png?v=1)\n\n` + data.content;
+    }
 
     return data;
 }
