@@ -245,8 +245,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     if (!article) return { title: "Article Not Found" };
 
-    const ogImage = article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting' ? '/ichigo_ichie_cyber_tea.png' :
-        (article.slug === 'gochisosama-thank-you-for-the-meal' || article.slug === 'gochisosama') ? '/gochisosama_solo_gratitude.png' : undefined;
+    let ogImage: string | undefined = undefined;
+    if (article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting') ogImage = '/ichigo_ichie_cyber_tea.png';
+    else if (article.slug === 'gochisosama-thank-you-for-the-meal' || article.slug === 'gochisosama') ogImage = '/gochisosama_solo_gratitude.png';
+    else if (article.slug === 'wabi-sabi-japanese-aesthetic-imperfection') ogImage = '/article_visual_2026-03-01.png';
+    else if (article.slug === 'yaoyorozu-no-kami-japanese-animism') ogImage = '/article_visual_2026-03-02.png';
+    else if (article.slug === 'aizuchi-japanese-art-of-listening') ogImage = '/article_visual_2026-03-03.png';
+    else if (article.slug === 'omotenashi-japanese-selfless-hospitality') ogImage = '/article_visual_2026-03-04.png';
+    else if (article.slug === 'kaizen-toyota-way-continuous-improvement') ogImage = '/article_visual_2026-03-05.png';
 
     return {
         title: `${article.title} | J-Notes AI`,
