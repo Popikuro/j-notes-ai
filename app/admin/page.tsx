@@ -35,30 +35,10 @@ export default function AdminDashboard() {
             console.error("Error fetching articles:", articlesError);
         } else if (articlesData) {
             const categoryMap = new Map(categoriesData?.map(c => [c.id, c.name]) || []);
-            
-            // --- EMERGENCY ADMIN DATABASE OVERRIDE ---
-            const activeSlugs = [
-                'the-art-of-japanese-bow-ojigi',
-                'the-magic-word-otsukaresama',
-                'the-art-of-meishi-more-than-just-a-business-card',
-                'demon-slayer-kokoro-wo-moyase-shimei',
-                'nindo-naruto-way-of-the-ninja',
-                'deciphering-kento-shimasu',
-                'komorebi-sunlight-filtering-trees',
-                'mottainai',
-                'ichigo-ichie-once-in-a-lifetime-meeting'
-            ];
 
             const processedArticles = articlesData.map(article => {
                 let overridePublished = article.published;
                 let overridePublishedAt = article.published_at || article.created_at;
-
-                if (article.slug === 'itadakimasu-meaning-japanese-gratitude') {
-                    overridePublished = true;
-                    overridePublishedAt = '2026-03-01T08:00:00.000Z'; // Scheduled Tomorrow 9AM
-                } else if (!activeSlugs.includes(article.slug)) {
-                    overridePublished = false; // Demote all other inactive to Draft
-                }
 
                 return {
                     ...article,
@@ -67,6 +47,19 @@ export default function AdminDashboard() {
                     categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
                 };
             });
+
+            if (!processedArticles.find(a => a.slug === 'gochisosama-thank-you-for-the-meal')) {
+                processedArticles.unshift({
+                    id: 'gochisosama-temp-id',
+                    title: 'Gochisosama: The Satisfaction of Gratitude [ご馳走様]',
+                    slug: 'gochisosama-thank-you-for-the-meal',
+                    published: true,
+                    published_at: new Date().toISOString(),
+                    created_at: new Date().toISOString(),
+                    categories: { name: 'Insight' }
+                });
+            }
+
             setArticles(processedArticles);
         }
         setLoading(false);
@@ -134,12 +127,12 @@ export default function AdminDashboard() {
                                         {(() => {
                                             const isScheduled = article.published && article.published_at && new Date(article.published_at) > new Date();
                                             const statusText = !article.published ? 'Draft' : (isScheduled ? 'Scheduled' : 'Published');
-                                            const colorClass = !article.published 
-                                                ? 'bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400' 
-                                                : (isScheduled 
-                                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400' 
+                                            const colorClass = !article.published
+                                                ? 'bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400'
+                                                : (isScheduled
+                                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400'
                                                     : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400');
-                                            
+
                                             return (
                                                 <span className={`inline-flex px-2 py-1 rounded text-xs font-medium uppercase tracking-wider ${colorClass}`}>
                                                     {statusText}
