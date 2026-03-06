@@ -31,7 +31,7 @@ export default async function Home() {
 
   // Manually map categories to articles
   const categoryMap = new Map(categories?.map(c => [c.id, c.name]) || []);
-  
+
   // --- EMERGENCY FRONTEND DATABASE OVERRIDE ---
   const overrideTitles: Record<string, string> = {
     'the-magic-word-otsukaresama': 'Otsukaresama: More Than "Good Job" [お疲れ様です]',
@@ -41,11 +41,24 @@ export default async function Home() {
     'nindo-naruto-way-of-the-ninja': 'Nindo [忍道]: The Way of the Ninja and Finding Your Belief'
   };
 
-  const articles = articlesData?.map(article => ({
+  const mappedArticles = articlesData?.map(article => ({
     ...article,
     title: overrideTitles[article.slug] || article.title,
     categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
   })) || [];
+
+  const articles = [
+    {
+      id: 99910,
+      title: "The Art of 'Ma': Why You Need a Digital Pause More Than a Digital Detox",
+      slug: "the-art-of-ma-digital-pause",
+      excerpt: "Discover the Japanese concept of 'Ma' (negative space) and how embracing the pause between actions can be more powerful than constant improvement.",
+      published_at: new Date().toISOString(),
+      category_id: null,
+      categories: { name: "Insight" }
+    },
+    ...mappedArticles
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">

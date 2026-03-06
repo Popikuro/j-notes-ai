@@ -26,7 +26,27 @@ async function getArticle(slug: string) {
         .lte("published_at", new Date().toISOString())
         .single();
 
-    if (slug === 'gochisosama-thank-you-for-the-meal' || slug === 'gochisosama') {
+    if (slug === 'the-art-of-ma-digital-pause') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try {
+            fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'the-art-of-ma-digital-pause.mdx'), 'utf8');
+        } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+
+        data = {
+            id: 99910,
+            title: "The Art of 'Ma': Why You Need a Digital Pause More Than a Digital Detox",
+            slug: 'the-art-of-ma-digital-pause',
+            content: contentBody,
+            excerpt: "Discover the Japanese concept of 'Ma' (negative space) and how embracing the pause between actions can be more powerful than constant improvement.",
+            published_at: new Date().toISOString(),
+            created_at: new Date().toISOString(),
+            category_id: null
+        };
+        error = null;
+    } else if (slug === 'gochisosama-thank-you-for-the-meal' || slug === 'gochisosama') {
         // Hardcode the Gochisosama article to bypass Supabase completely since it's not in the DB yet
         data = {
             id: 9999,
@@ -257,7 +277,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!article) return { title: "Article Not Found" };
 
     let ogImage: string | undefined = undefined;
-    if (article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting') ogImage = '/ichigo_ichie_cyber_tea.png';
+    if (article.slug === 'the-art-of-ma-digital-pause') ogImage = '/images/ma-visual.png';
+    else if (article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting') ogImage = '/ichigo_ichie_cyber_tea.png';
     else if (article.slug === 'gochisosama-thank-you-for-the-meal' || article.slug === 'gochisosama') ogImage = '/gochisosama_solo_gratitude.png';
     else if (article.slug === 'wabi-sabi-japanese-aesthetic-imperfection') ogImage = '/article_visual_2026-03-01.png';
     else if (article.slug === 'yaoyorozu-no-kami-japanese-animism') ogImage = '/article_visual_2026-03-02.png';
