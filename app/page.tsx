@@ -49,11 +49,20 @@ export default async function Home() {
 
   const articles = [
     {
+      id: 99911,
+      title: "Ikigai: Finding Your Purpose in the AI Era",
+      slug: "ikigai-finding-purpose-in-ai-era",
+      excerpt: "Feeling the weight of 'AI Fatigue'? Discover how the Japanese concept of Ikigai (reason for being) serves as the ultimate antidote for a cluttered digital world.",
+      published_at: new Date().toISOString(),
+      category_id: null,
+      categories: { name: "Insight" }
+    },
+    {
       id: 99910,
       title: "The Art of 'Ma': Why You Need a Digital Pause More Than a Digital Detox",
       slug: "the-art-of-ma-digital-pause",
       excerpt: "Discover the Japanese concept of 'Ma' (negative space) and how embracing the pause between actions can be more powerful than constant improvement.",
-      published_at: new Date().toISOString(),
+      published_at: new Date(Date.now() - 3600000).toISOString(),
       category_id: null,
       categories: { name: "Insight" }
     },
