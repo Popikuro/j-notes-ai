@@ -31,7 +31,7 @@ async function getArticle(slug: string) {
         const path = require('path');
         let fileContent = '';
         try {
-            fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'ikigai-finding-purpose-in-ai-era.mdx'), 'utf8');
+            fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'ikigai-finding-purpose-in-ai-era.mdx'), 'utf8');
         } catch (e) { }
         const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
 
@@ -51,7 +51,7 @@ async function getArticle(slug: string) {
         const path = require('path');
         let fileContent = '';
         try {
-            fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'the-art-of-ma-digital-pause.mdx'), 'utf8');
+            fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'the-art-of-ma-digital-pause.mdx'), 'utf8');
         } catch (e) { }
         const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
 
@@ -297,15 +297,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!article) return { title: "Article Not Found" };
 
     let ogImage: string | undefined = undefined;
-    if (article.slug === 'ikigai-finding-purpose-in-ai-era') ogImage = '/images/ikigai-visual.png';
-    else if (article.slug === 'the-art-of-ma-digital-pause') ogImage = '/images/ma-visual.png';
-    else if (article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting') ogImage = '/ichigo_ichie_cyber_tea.png';
-    else if (article.slug === 'gochisosama-thank-you-for-the-meal' || article.slug === 'gochisosama') ogImage = '/gochisosama_solo_gratitude.png';
-    else if (article.slug === 'wabi-sabi-japanese-aesthetic-imperfection') ogImage = '/article_visual_2026-03-01.png';
-    else if (article.slug === 'yaoyorozu-no-kami-japanese-animism') ogImage = '/article_visual_2026-03-02.png';
-    else if (article.slug === 'aizuchi-japanese-art-of-listening') ogImage = '/article_visual_2026-03-03.png';
-    else if (article.slug === 'omotenashi-japanese-selfless-hospitality') ogImage = '/article_visual_2026-03-04.png';
-    else if (article.slug === 'kaizen-toyota-way-continuous-improvement') ogImage = '/article_visual_2026-03-05.png';
+    if (article.slug === 'ikigai-finding-purpose-in-ai-era') ogImage = '/images/ikigai-finding-purpose-in-ai-era/ikigai-visual.png';
+    else if (article.slug === 'the-art-of-ma-digital-pause') ogImage = '/images/the-art-of-ma-digital-pause/ma-visual.png';
+    else if (article.slug === 'ichigo-ichie-once-in-a-lifetime-meeting') ogImage = '/images/ichigo-ichie-once-in-a-lifetime-meeting/ichigo_ichie_cyber_tea.png';
+    else if (article.slug === 'gochisosama-thank-you-for-the-meal' || article.slug === 'gochisosama') ogImage = '/images/gochisosama-thank-you-for-the-meal/gochisosama_solo_gratitude.png';
+    else if (article.slug === 'wabi-sabi-japanese-aesthetic-imperfection') ogImage = '/images/wabi-sabi-japanese-aesthetic-imperfection/article_visual.png';
+    else if (article.slug === 'yaoyorozu-no-kami-japanese-animism') ogImage = '/images/yaoyorozu-no-kami-japanese-animism/article_visual.png';
+    else if (article.slug === 'aizuchi-japanese-art-of-listening') ogImage = '/images/aizuchi-japanese-art-of-listening/article_visual.png';
+    else if (article.slug === 'omotenashi-japanese-selfless-hospitality') ogImage = '/images/omotenashi-japanese-selfless-hospitality/article_visual.png';
+    else if (article.slug === 'kaizen-toyota-way-continuous-improvement') ogImage = '/images/kaizen-toyota-way-continuous-improvement/article_visual.png';
 
     return {
         title: `${article.title} | J-Notes AI`,
