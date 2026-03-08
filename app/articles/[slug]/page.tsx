@@ -182,26 +182,32 @@ Before taking the first bite, it is customary to say <ContextDecoder phrase="い
 This concept ties heavily back to *Mottainai* (the regret of waste). Because you have recognized the sacrifice required for the meal, it becomes culturally unacceptable to leave food unfinished. 
         `.trim();
     } else if (slug === 'mottainai') {
-        data.title = 'Mottainai: The Deep Respect for All Things [勿体無い]';
-        data.content = `
-At its core, "Mottainai" is often translated as "What a waste," but this captures only a fraction of its true spiritual depth. It is a philosophy of gratitude.
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try {
+            fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'mottainai-digital-minimalism-in-ai.mdx'), 'utf8');
+        } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
 
-## The Philosophy of Value
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) {
+            const d = new Date(dateMatch[1]);
+            if (!isNaN(d.getTime())) parsedDate = d.toISOString();
+        }
 
-![Osushi-chan Mottainai Cyber Mode](/osushi-mottainai.png?v=2)
-
-Rooted in Buddhist and Shinto animism, <ContextDecoder phrase="勿体無い" meaning="A sense of regret concerning waste" context="Used when something's intrinsic value is not properly utilized">Mottainai</ContextDecoder> acknowledges that every object—from a single grain of rice to a piece of paper—contains a spirit or was created through immense effort and sacrifice.
-
-## How It Manifests
-
-1. **Food**: Eating every single grain of rice in your bowl to honor the farmers and the life given.
-2. **Objects**: Repairing broken items (like the art of *Kintsugi*) instead of discarding them.
-3. **Time & Effort**: Not wasting the time or hard work someone dedicates to you.
-
-## A Global Mindset
-
-Wangari Maathai, the Nobel Peace Prize laureate, famously adopted "Mottainai" as a global environmental slogan, proving that this ancient Japanese concept holds the key to modern sustainability.
-        `.trim();
+        data = {
+            id: 99912,
+            title: "Mottainai: Digital Minimalism in AI",
+            slug: 'mottainai-digital-minimalism-in-ai',
+            content: contentBody,
+            excerpt: "A deep dive into the Japanese philosophy of Mottainai and how it applies to our digital lives and AI consumption.",
+            published_at: parsedDate,
+            created_at: parsedDate,
+            category_id: null
+        };
+        error = null;
     } else if (slug === 'komorebi-sunlight-filtering-through-trees' || slug === 'komorebi' || slug === 'komorebi-sunlight-filtering-trees') {
         data.title = 'Komorebi: The Ephemeral Beauty of Light [木漏れ日]';
         data.content = `
