@@ -35,14 +35,21 @@ async function getArticle(slug: string) {
         } catch (e) { }
         const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
 
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) {
+            const d = new Date(dateMatch[1]);
+            if (!isNaN(d.getTime())) parsedDate = d.toISOString();
+        }
+
         data = {
             id: 99911,
             title: "Ikigai: Finding Your Purpose in the AI Era",
             slug: 'ikigai-finding-purpose-in-ai-era',
             content: contentBody,
             excerpt: "Feeling the weight of 'AI Fatigue'? Discover how the Japanese concept of Ikigai (reason for being) serves as the ultimate antidote for a cluttered digital world.",
-            published_at: new Date().toISOString(),
-            created_at: new Date().toISOString(),
+            published_at: parsedDate,
+            created_at: parsedDate,
             category_id: null
         };
         error = null;
@@ -55,14 +62,21 @@ async function getArticle(slug: string) {
         } catch (e) { }
         const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
 
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) {
+            const d = new Date(dateMatch[1]);
+            if (!isNaN(d.getTime())) parsedDate = d.toISOString();
+        }
+
         data = {
             id: 99910,
             title: "The Art of 'Ma': Why You Need a Digital Pause More Than a Digital Detox",
             slug: 'the-art-of-ma-digital-pause',
             content: contentBody,
             excerpt: "Discover the Japanese concept of 'Ma' (negative space) and how embracing the pause between actions can be more powerful than constant improvement.",
-            published_at: new Date().toISOString(),
-            created_at: new Date().toISOString(),
+            published_at: parsedDate,
+            created_at: parsedDate,
             category_id: null
         };
         error = null;

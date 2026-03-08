@@ -47,7 +47,7 @@ export default async function Home() {
     categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
   })) || [];
 
-  const articles = [
+  const rawArticles = [
     {
       id: 99911,
       title: "Ikigai: Finding Your Purpose in the AI Era",
@@ -68,6 +68,34 @@ export default async function Home() {
     },
     ...mappedArticles
   ];
+
+  const fs = require('fs');
+  const path = require('path');
+
+  const articles = rawArticles.map(article => {
+    let slugToCheck = article.slug;
+    if (article.slug === 'mottainai') {
+      slugToCheck = 'mottainai-digital-minimalism-in-ai';
+    }
+
+    try {
+      const filePath = path.join(process.cwd(), 'articles', 'philosophy', `${slugToCheck}.mdx`);
+      if (fs.existsSync(filePath)) {
+        const content = fs.readFileSync(filePath, 'utf8');
+        const dateMatch = content.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) {
+          const parsedDate = new Date(dateMatch[1]);
+          if (!isNaN(parsedDate.getTime())) {
+            return { ...article, published_at: parsedDate.toISOString() };
+          }
+        }
+      }
+    } catch (e) {
+      // Ignore missing files or read errors, fallback to default
+    }
+
+    return article;
+  }).sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
 
   return (
     <div className="flex flex-col min-h-screen">
