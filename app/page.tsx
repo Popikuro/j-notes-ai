@@ -103,8 +103,8 @@ export default async function Home() {
       <section className="relative w-full h-[45vh] min-h-[400px] max-h-[500px] overflow-hidden bg-slate-950 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero.png"
-            alt="Futuristic Nano Banana Hero"
+            src="/site_header_neon_dojo.png"
+            alt="Neo-Edo Cyberpunk Sushi-ya Header"
             fill
             className="object-cover opacity-60 mix-blend-luminosity"
             priority
