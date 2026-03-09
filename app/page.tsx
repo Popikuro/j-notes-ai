@@ -66,6 +66,15 @@ export default async function Home() {
       category_id: null,
       categories: { name: "Insight" }
     },
+    {
+      id: 99913,
+      title: "Kintsugi: The Beauty of Digital Flaws",
+      slug: "kintsugi-the-beauty-of-digital-flaws",
+      excerpt: "Embracing imperfections in our digital creations through the philosophy of Kintsugi.",
+      published_at: new Date("2026-03-09").toISOString(),
+      category_id: null,
+      categories: { name: "Insight" }
+    },
     ...mappedArticles
   ];
 

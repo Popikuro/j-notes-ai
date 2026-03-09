@@ -92,6 +92,33 @@ async function getArticle(slug: string) {
             category_id: null
         };
         error = null;
+    } else if (slug === 'kintsugi-the-beauty-of-digital-flaws') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try {
+            fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'kintsugi-the-beauty-of-digital-flaws.mdx'), 'utf8');
+        } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) {
+            const d = new Date(dateMatch[1]);
+            if (!isNaN(d.getTime())) parsedDate = d.toISOString();
+        }
+
+        data = {
+            id: 99913,
+            title: "Kintsugi: The Beauty of Digital Flaws",
+            slug: 'kintsugi-the-beauty-of-digital-flaws',
+            content: contentBody,
+            excerpt: "Embracing imperfections in our digital creations through the philosophy of Kintsugi.",
+            published_at: parsedDate,
+            created_at: parsedDate,
+            category_id: null
+        };
+        error = null;
     } else if (error || !data) {
         return null;
     }
