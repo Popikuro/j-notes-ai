@@ -71,7 +71,52 @@ export default async function Home() {
       title: "Kintsugi: The Beauty of Digital Flaws",
       slug: "kintsugi-the-beauty-of-digital-flaws",
       excerpt: "Embracing imperfections in our digital creations through the philosophy of Kintsugi.",
-      published_at: new Date("2026-03-09").toISOString(),
+      published_at: new Date("2026-03-09T00:00:00.000Z").toISOString(), // 9 AM JST
+      category_id: null,
+      categories: { name: "Insight" }
+    },
+    {
+      id: 99914,
+      title: "Shuhari: The Three Stages of AI Mastery",
+      slug: "shuhari-three-stages-of-ai-mastery",
+      excerpt: "How to evolve from blindly following AI prompts to creatively bending the algorithmic rules.",
+      published_at: new Date("2026-03-10T00:00:00.000Z").toISOString(), // 9 AM JST
+      category_id: null,
+      categories: { name: "Insight" }
+    },
+    {
+      id: 99915,
+      title: "Bushido: The Ethics of the AI Prompt Engineer",
+      slug: "bushido-ethics-in-ai",
+      excerpt: "Why navigating the future of Artificial Intelligence requires the ancient heart, honesty, and responsibility of a Samurai.",
+      published_at: new Date("2026-03-11T00:00:00.000Z").toISOString(), // 9 AM JST
+      category_id: null,
+      categories: { name: "Insight" }
+    },
+    {
+      id: 99916,
+      title: "The Samurai Spirit: Forging Human Mastery Alongside AI",
+      slug: "samurai-spirit-ai-mastery",
+      excerpt: "True mastery isn't outsourcing your skills to an algorithm; it's using the algorithm as a whetstone to sharpen your own human spirit.",
+      published_at: new Date("2026-03-12T00:00:00.000Z").toISOString(), // 9 AM JST
+      category_id: null,
+      categories: { name: "Insight" }
+    },
+    {
+      id: 99917,
+      title: "Zen and the Art of Prompting: Embracing 'Ku'",
+      slug: "zen-and-art-of-prompting",
+      excerpt: "How the Zen concept of Emptiness can transform your relationship with AI, proving that less is often more.",
+      published_at: new Date("2026-03-13T00:00:00.000Z").toISOString(), // 9 AM JST
+      category_id: null,
+      categories: { name: "Insight" }
+    },
+    {
+      id: 99918,
+      title: "Cha-no-yu: The Ritual of the Cyber Tea Ceremony",
+      slug: "chanoyu-cyber-tea",
+      excerpt: "Transforming your daily AI interactions from frantic transactions into mindful, sacred rituals.",
+      published_at: new Date("2026-03-14T00:00:00.000Z").toISOString(), // 9 AM JST
       category_id: null,
       categories: { name: "Insight" }
     },
@@ -93,7 +138,7 @@ export default async function Home() {
         const content = fs.readFileSync(filePath, 'utf8');
         const dateMatch = content.match(/date:\s*["']([^"']+)["']/);
         if (dateMatch && dateMatch[1]) {
-          const parsedDate = new Date(dateMatch[1]);
+          const parsedDate = new Date(`${dateMatch[1]}T00:00:00.000Z`); // Set to JST 9:00 AM (UTC midnight)
           if (!isNaN(parsedDate.getTime())) {
             return { ...article, published_at: parsedDate.toISOString() };
           }
@@ -104,7 +149,8 @@ export default async function Home() {
     }
 
     return article;
-  }).sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
+  }).filter(article => new Date(article.published_at).getTime() <= Date.now()) // Filter out future articles
+    .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
 
   return (
     <div className="flex flex-col min-h-screen">

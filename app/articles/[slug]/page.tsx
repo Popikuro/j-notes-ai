@@ -104,7 +104,7 @@ async function getArticle(slug: string) {
         let parsedDate = new Date().toISOString();
         const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
         if (dateMatch && dateMatch[1]) {
-            const d = new Date(dateMatch[1]);
+            const d = new Date(`${dateMatch[1]}T00:00:00.000Z`);
             if (!isNaN(d.getTime())) parsedDate = d.toISOString();
         }
 
@@ -118,6 +118,66 @@ async function getArticle(slug: string) {
             created_at: parsedDate,
             category_id: null
         };
+        error = null;
+    } else if (slug === 'shuhari-three-stages-of-ai-mastery') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'shuhari-three-stages-of-ai-mastery.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99914, title: "Shuhari: The Three Stages of AI Mastery", slug: 'shuhari-three-stages-of-ai-mastery', content: contentBody, excerpt: "How to evolve from blindly following AI prompts to creatively bending the algorithmic rules.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        error = null;
+    } else if (slug === 'bushido-ethics-in-ai') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'bushido-ethics-in-ai.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99915, title: "Bushido: The Ethics of the AI Prompt Engineer", slug: 'bushido-ethics-in-ai', content: contentBody, excerpt: "Why navigating the future of Artificial Intelligence requires the ancient heart, honesty, and responsibility of a Samurai.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        error = null;
+    } else if (slug === 'samurai-spirit-ai-mastery') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'samurai-spirit-ai-mastery.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99916, title: "The Samurai Spirit: Forging Human Mastery Alongside AI", slug: 'samurai-spirit-ai-mastery', content: contentBody, excerpt: "True mastery isn't outsourcing your skills to an algorithm; it's using the algorithm as a whetstone to sharpen your own human spirit.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        error = null;
+    } else if (slug === 'zen-and-art-of-prompting') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'zen-and-art-of-prompting.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99917, title: "Zen and the Art of Prompting: Embracing 'Ku'", slug: 'zen-and-art-of-prompting', content: contentBody, excerpt: "How the Zen concept of Emptiness can transform your relationship with AI, proving that less is often more.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        error = null;
+    } else if (slug === 'chanoyu-cyber-tea') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'chanoyu-cyber-tea.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99918, title: "Cha-no-yu: The Ritual of the Cyber Tea Ceremony", slug: 'chanoyu-cyber-tea', content: contentBody, excerpt: "Transforming your daily AI interactions from frantic transactions into mindful, sacred rituals.", published_at: parsedDate, created_at: parsedDate, category_id: null };
         error = null;
     } else if (error || !data) {
         return null;
