@@ -7,16 +7,32 @@ export function NewsletterSignup() {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!email) return;
+        
+        // Client-side validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) return;
 
         setStatus("loading");
-        // Mock API call
-        setTimeout(() => {
-            setStatus("success");
-            setEmail("");
-        }, 1000);
+        
+        try {
+            const res = await fetch("/api/subscribe", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+            });
+            
+            if (res.ok) {
+                setStatus("success");
+                setEmail("");
+            } else {
+                setStatus("idle");
+            }
+        } catch (error) {
+            console.error("Subscription failed:", error);
+            setStatus("idle");
+        }
     };
 
     return (
@@ -41,8 +57,8 @@ export function NewsletterSignup() {
                 {/* Form Block */}
                 <div className="w-full flex justify-center mt-2 sm:mt-0">
                     {status === "success" ? (
-                        <div className="bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 rounded-full px-6 py-3 flex items-center justify-center gap-2 font-medium transition-all animate-in zoom-in-95">
-                            <span className="text-lg">✨</span> You're on the list!
+                        <div className="bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 rounded-full px-6 py-3 flex items-center justify-center gap-2 font-medium transition-all animate-in fade-in duration-500">
+                            Check your inbox! A welcome gift from J-Notes is on its way. 🍣
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 w-full max-w-md relative">
@@ -60,7 +76,7 @@ export function NewsletterSignup() {
                                 disabled={status === "loading"}
                                 className="bg-indigo-600 hover:bg-indigo-500 text-white rounded-full px-6 py-3 sm:py-2 font-medium transition-colors flex items-center justify-center gap-2 disabled:opacity-70 text-sm tracking-wide w-full sm:w-auto mt-2 sm:mt-0"
                             >
-                                Subscribe <Send className="w-3 h-3" />
+                                {status === "loading" ? "Sending..." : <>Subscribe <Send className="w-3 h-3" /></>}
                             </button>
                         </form>
                     )}
