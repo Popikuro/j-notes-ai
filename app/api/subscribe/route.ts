@@ -38,7 +38,7 @@ export async function POST(request: Request) {
                     
                     <p>Thank you for subscribing to J-Notes AI.</p>
                     
-                    <p>I'm Samuel, your guide through the fascinating intersections of Japanese philosophy, culture, and modern Artificial Intelligence.</p>
+                    <p>I'm Osushi chan, your guide through the fascinating intersections of Japanese philosophy, culture, and modern Artificial Intelligence.</p>
                     
                     <p>Here at J-Notes, we believe that mastering the nuance of AI isn't just about technical prompting—it's about intentionality. As a welcome gift, I want to share one of our core philosophies with you:</p>
                     
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
                     
                     <br/>
                     <p>Warmly,<br/>
-                    <strong>Samuel | J-Notes AI</strong></p>
+                    <strong>Osushi chan | J-Notes AI</strong></p>
                 </div>
             `,
         });
