@@ -120,6 +120,15 @@ export default async function Home() {
       category_id: null,
       categories: { name: "Insight" }
     },
+    {
+      id: 99919,
+      title: "Uwabaki and the Art of Cleanliness: Why Japan Takes Its Shoes Off",
+      slug: "uwabaki-and-the-art-of-cleanliness",
+      excerpt: "From ancient tatami rooms to modern schools, discover the profound philosophy behind Japan's shoe-removal culture and how the world is catching on.",
+      published_at: new Date().toISOString(),
+      category_id: null,
+      categories: { name: "Insight" }
+    },
     ...mappedArticles
   ];
 
