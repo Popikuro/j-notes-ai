@@ -179,6 +179,18 @@ async function getArticle(slug: string) {
 
         data = { id: 99918, title: "Cha-no-yu: The Ritual of the Cyber Tea Ceremony", slug: 'chanoyu-cyber-tea', content: contentBody, excerpt: "Transforming your daily AI interactions from frantic transactions into mindful, sacred rituals.", published_at: parsedDate, created_at: parsedDate, category_id: null };
         error = null;
+    } else if (slug === 'uwabaki-and-the-art-of-cleanliness') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'uwabaki-and-the-art-of-cleanliness.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99919, title: "Uwabaki and the Art of Cleanliness: Why Japan Takes Its Shoes Off", slug: 'uwabaki-and-the-art-of-cleanliness', content: contentBody, excerpt: "From ancient tatami rooms to modern schools, discover the profound philosophy behind Japan's shoe-removal culture and how the world is catching on.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        error = null;
     } else if (error || !data) {
         return null;
     }
@@ -413,6 +425,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     else if (article.slug === 'aizuchi-japanese-art-of-listening') ogImage = '/images/aizuchi-japanese-art-of-listening/article_visual.png';
     else if (article.slug === 'omotenashi-japanese-selfless-hospitality') ogImage = '/images/omotenashi-japanese-selfless-hospitality/article_visual.png';
     else if (article.slug === 'kaizen-toyota-way-continuous-improvement') ogImage = '/images/kaizen-toyota-way-continuous-improvement/article_visual.png';
+    else if (article.slug === 'uwabaki-and-the-art-of-cleanliness') ogImage = '/images/articles/uwabaki-top.png';
 
     return {
         title: `${article.title} | J-Notes AI`,
