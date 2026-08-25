@@ -439,6 +439,11 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
             const affiliateHtml = `\n\n<AffiliateLink title="Traditional Japanese Uwabaki Indoor Shoes" desc="Experience the comfort and cleanliness of Japanese indoor footwear. Perfect for maintaining a spotless and mindful living space." url="https://amzn.to/4zCPiEx" icon="👟" cta="View Uwabaki on Amazon →" />`;
             data.content = data.content + affiliateHtml;
         }
+    } else if (slug === 'itadakimasu-meaning-japanese-gratitude') {
+        if (data && data.content && !data.content.includes('amzn.to/4gnMmCU')) {
+            const affiliateHtml = `\n\n<AffiliateLink title="Authentic Japanese Bento Box" desc="Bring the spirit of Itadakimasu into your daily life with a beautiful, traditional bento box. Perfect for mindful eating and appreciating your meals." url="https://amzn.to/4gnMmCU" icon="🍱" cta="View Bento Box on Amazon →" />`;
+            data.content = data.content + affiliateHtml;
+        }
     }
 
     return data;
