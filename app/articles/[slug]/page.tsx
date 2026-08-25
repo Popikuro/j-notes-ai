@@ -405,6 +405,14 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
             const ctaHtml = `\n\n---\n\n**Deep Dive:** If you want to learn more about how this spiritual respect translates into daily life, explore the profound philosophy of Mottainai (Too Good to Waste) [here](/articles/mottainai).`;
             data.content = data.content + ctaHtml;
         }
+    } else if (slug === 'ichiju-sansai-dining-os') {
+        if (data && data.content && !data.content.includes('osushi-ichiju-sansai.png')) {
+            data.content = `![Osushi-chan sitting in front of a traditional Ichiju Sansai meal (rice, miso soup, and three side dishes)](/osushi-ichiju-sansai.png?v=1)\n\n` + data.content;
+        }
+        if (data && data.content && !data.content.includes('amzn.to/4zvaRXE')) {
+            const affiliateHtml = `\n\n<AffiliateLink title="Traditional Japanese Ichiju Sansai Dining Set" desc="Bring the balance of Ichiju Sansai to your own home with this authentic Japanese wooden dining tray and bowl set." url="https://amzn.to/4zvaRXE" icon="🍱" cta="View Dining Set on Amazon →" />`;
+            data.content = data.content + affiliateHtml;
+        }
     }
     if (slug === 'wabi-sabi-japanese-aesthetic-imperfection' && data && data.content && !data.content.includes('/article_visual_')) {
         data.content = `![Osushi-chan in a digital void with floating Kanji representing Wabi-Sabi](/article_visual_2026-03-01.png?v=1)\n\n` + data.content;
