@@ -434,6 +434,11 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
             const affiliateHtml = `\n\n<AffiliateLink title="The Toyota Way: 14 Management Principles" desc="Deep dive into the philosophy of Kaizen and continuous improvement straight from the source. A classic text on Japanese manufacturing excellence." url="https://amzn.to/4hP30Ol" icon="📈" cta="View Book on Amazon →" />`;
             data.content = data.content + affiliateHtml;
         }
+    } else if (slug === 'uwabaki-and-the-art-of-cleanliness') {
+        if (data && data.content && !data.content.includes('amzn.to/4zCPiEx')) {
+            const affiliateHtml = `\n\n<AffiliateLink title="Traditional Japanese Uwabaki Indoor Shoes" desc="Experience the comfort and cleanliness of Japanese indoor footwear. Perfect for maintaining a spotless and mindful living space." url="https://amzn.to/4zCPiEx" icon="👟" cta="View Uwabaki on Amazon →" />`;
+            data.content = data.content + affiliateHtml;
+        }
     }
 
     return data;
