@@ -191,7 +191,19 @@ async function getArticle(slug: string) {
 
         data = { id: 99919, title: "Uwabaki and the Art of Cleanliness: Why Japan Takes Its Shoes Off", slug: 'uwabaki-and-the-art-of-cleanliness', content: contentBody, excerpt: "From ancient tatami rooms to modern schools, discover the profound philosophy behind Japan's shoe-removal culture and how the world is catching on.", published_at: parsedDate, created_at: parsedDate, category_id: null };
         error = null;
-    } else if (error || !data) {
+    }     } else if (slug === 'dashi-and-umami') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'dashi-and-umami.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99920, title: "The Architecture of Umami: How Japanese Dashi Engineered the Fifth Taste", slug: 'dashi-and-umami', content: contentBody, excerpt: "Western stock adds layers; Japanese dashi extracts essence. Discover the ancient 'subtraction algorithm' behind dashi, the molecular synergy of Umami, and how savoring pure broth recalibrates the human operating system.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        error = null;
+    } else if (error || !data) {else if (error || !data) {
         return null;
     }
 
