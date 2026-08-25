@@ -4,27 +4,44 @@ import { useMemo } from "react";
 import { marked } from "marked";
 import parse, { attributesToProps, Element, domToReact, DOMNode } from "html-react-parser";
 import { ContextDecoder } from "./ContextDecoder";
+import { AffiliateLink } from "./AffiliateLink";
 
 export function MarkdownRenderer({ content }: { content: string }) {
     const parsedHtml = useMemo(() => {
-        // Force self-closing on any unclosed ContextDecoder tags to prevent catastrophic layout wrapping
-        const preProcessed = content.replace(/<ContextDecoder([^>]*[^\/])>/gi, '<ContextDecoder$1 />');
+        // Force self-closing on any unclosed ContextDecoder or AffiliateLink tags
+        let preProcessed = content.replace(/<ContextDecoder([^>]*[^\/])>/gi, '<ContextDecoder$1 />');
+        preProcessed = preProcessed.replace(/<AffiliateLink([^>]*[^\/])>/gi, '<AffiliateLink$1 />');
         return marked.parse(preProcessed) as string;
     }, [content]);
 
     const options = {
         replace: (domNode: DOMNode) => {
-            if (domNode instanceof Element && domNode.name && domNode.name.toLowerCase() === 'contextdecoder') {
-                const props = attributesToProps(domNode.attribs);
-                return (
-                    <ContextDecoder
-                        phrase={typeof props.phrase === 'string' ? props.phrase : ""}
-                        meaning={typeof props.meaning === 'string' ? props.meaning : ""}
-                        context={typeof props.context === 'string' ? props.context : ""}
-                    >
-                        {domToReact(domNode.children as DOMNode[], options)}
-                    </ContextDecoder>
-                );
+            if (domNode instanceof Element && domNode.name) {
+                const name = domNode.name.toLowerCase();
+                if (name === 'contextdecoder') {
+                    const props = attributesToProps(domNode.attribs);
+                    return (
+                        <ContextDecoder
+                            phrase={typeof props.phrase === 'string' ? props.phrase : ""}
+                            meaning={typeof props.meaning === 'string' ? props.meaning : ""}
+                            context={typeof props.context === 'string' ? props.context : ""}
+                        >
+                            {domToReact(domNode.children as DOMNode[], options)}
+                        </ContextDecoder>
+                    );
+                }
+                if (name === 'affiliatelink') {
+                    const props = attributesToProps(domNode.attribs);
+                    return (
+                        <AffiliateLink
+                            title={typeof props.title === 'string' ? props.title : ""}
+                            desc={typeof props.desc === 'string' ? props.desc : ""}
+                            url={typeof props.url === 'string' ? props.url : ""}
+                            icon={typeof props.icon === 'string' ? props.icon : undefined}
+                            cta={typeof props.cta === 'string' ? props.cta : undefined}
+                        />
+                    );
+                }
             }
         }
     };

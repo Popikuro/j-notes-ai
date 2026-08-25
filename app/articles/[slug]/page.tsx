@@ -501,26 +501,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 <MarkdownRenderer content={article.content} />
             </div>
 
-                        {/* Affiliate Block */}
-            <div className="container max-w-[720px] mx-auto px-6 md:px-0 mt-12">
-                <div className="p-6 rounded-xl border border-slate-700/60 bg-slate-900/80 backdrop-blur-sm w-full">
-                    <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xl">🍵</span>
-                        <h4 className="text-lg font-bold text-sky-400 m-0">Recommended Zen Ritual Tool</h4>
-                    </div>
-                    <p className="text-sm text-slate-300 mb-4 leading-relaxed m-0">
-                        Transform your daily routine into a mindful digital pause with an authentic ceremonial matcha kit.
-                    </p>
-                    <a
-                        href="https://amzn.to/4zyGgbK"
-                        target="_blank"
-                        rel="noopener noreferrer sponsored"
-                        className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors duration-200 no-underline w-full md:w-auto"
-                    >
-                        View Matcha Starter Kit on Amazon &rarr;
-                    </a>
-                </div>
-            </div>{/* Reading End Newsletter */}
+            {/* Reading End Newsletter */}
             <div className="container max-w-[720px] mx-auto px-6 md:px-0 pb-16 pt-16 border-t border-slate-200 dark:border-slate-800 mt-16">
                 <div className="w-full relative">
                     <NewsletterSignup />
