@@ -191,7 +191,7 @@ async function getArticle(slug: string) {
 
         data = { id: 99919, title: "Uwabaki and the Art of Cleanliness: Why Japan Takes Its Shoes Off", slug: 'uwabaki-and-the-art-of-cleanliness', content: contentBody, excerpt: "From ancient tatami rooms to modern schools, discover the profound philosophy behind Japan's shoe-removal culture and how the world is catching on.", published_at: parsedDate, created_at: parsedDate, category_id: null };
         error = null;
-    }     } else if (slug === 'dashi-and-umami') {
+    } else if (slug === 'dashi-and-umami') {
         const fs = require('fs');
         const path = require('path');
         let fileContent = '';
