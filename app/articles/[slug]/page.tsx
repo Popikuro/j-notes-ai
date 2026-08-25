@@ -458,13 +458,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         notFound();
     }
 
-    // Format date
-    const formattedDate = new Date(article.published_at || article.created_at).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-        timeZone: 'UTC'
-    });
+
 
     return (
         <article className="min-h-screen bg-white dark:bg-[#121212] pb-20 antialiased">
@@ -478,9 +472,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     <div className="flex items-center gap-3 mb-6">
                         <span className="z-10 inline-flex items-center justify-center whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent shadow-sm">
                             {article.categories?.name || "Insight"}
-                        </span>
-                        <span className="whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-wider font-inter tabular-nums text-slate-500 dark:text-slate-400">
-                            {formattedDate}
                         </span>
                     </div>
 

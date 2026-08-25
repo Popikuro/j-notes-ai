@@ -47,9 +47,6 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                             >
                                 {article.categories?.name || "Insight"}
                             </span>
-                            <span className="whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-wider font-inter tabular-nums text-slate-500 dark:text-slate-400">
-                                {new Date(article.published_at || article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
-                            </span>
                         </div>
                         <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
                             <Link href={`/articles/${article.slug}`} className="hover:underline focus:outline-none">
