@@ -426,8 +426,14 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
         data.content = `![Osushi-chan looking at a digital sunrise representing Aizuchi](/article_visual_2026-03-03.png?v=1)\n\n` + data.content;
     } else if (slug === 'omotenashi-japanese-selfless-hospitality' && data && data.content && !data.content.includes('/article_visual_')) {
         data.content = `![Osushi-chan offering a glowing cyber tea cup representing Omotenashi](/article_visual_2026-03-04.png?v=1)\n\n` + data.content;
-    } else if (slug === 'kaizen-toyota-way-continuous-improvement' && data && data.content && !data.content.includes('/article_visual_')) {
-        data.content = `![Osushi-chan forging glowing neon gears representing Kaizen](/article_visual_2026-03-05.png?v=1)\n\n` + data.content;
+    } else if (slug === 'kaizen-toyota-way-continuous-improvement') {
+        if (data && data.content && !data.content.includes('/article_visual_')) {
+            data.content = `![Osushi-chan forging glowing neon gears representing Kaizen](/article_visual_2026-03-05.png?v=1)\n\n` + data.content;
+        }
+        if (data && data.content && !data.content.includes('amzn.to/4hP30Ol')) {
+            const affiliateHtml = `\n\n<AffiliateLink title="The Toyota Way: 14 Management Principles" desc="Deep dive into the philosophy of Kaizen and continuous improvement straight from the source. A classic text on Japanese manufacturing excellence." url="https://amzn.to/4hP30Ol" icon="📈" cta="View Book on Amazon →" />`;
+            data.content = data.content + affiliateHtml;
+        }
     }
 
     return data;
