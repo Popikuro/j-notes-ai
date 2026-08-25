@@ -22,7 +22,7 @@ export const AffiliateLink: React.FC<AffiliateLinkProps> = ({ title, desc, url, 
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors duration-200 no-underline"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold !text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors duration-200 no-underline"
             >
                 {cta}
             </a>
