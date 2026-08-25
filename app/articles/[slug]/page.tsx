@@ -203,7 +203,7 @@ async function getArticle(slug: string) {
 
         data = { id: 99920, title: "The Architecture of Umami: How Japanese Dashi Engineered the Fifth Taste", slug: 'dashi-and-umami', content: contentBody, excerpt: "Western stock adds layers; Japanese dashi extracts essence. Discover the ancient 'subtraction algorithm' behind dashi, the molecular synergy of Umami, and how savoring pure broth recalibrates the human operating system.", published_at: parsedDate, created_at: parsedDate, category_id: null };
         error = null;
-    } else if (error || !data) {else if (error || !data) {
+    } else if (error || !data) {
         return null;
     }
 
