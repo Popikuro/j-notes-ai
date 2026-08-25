@@ -129,7 +129,6 @@ export default async function Home() {
       category_id: null,
       categories: { name: "Insight" }
     },
-        },
     {
       id: 99920,
       title: "The Architecture of Umami: How Japanese Dashi Engineered the Fifth Taste",
