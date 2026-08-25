@@ -366,6 +366,10 @@ You will never hear a Japanese executive declare their "Nindo" in a loud, boastf
         if (data && data.content && !data.content.includes('osushi-kento-shimasu.png')) {
             data.content = `![Osushi-chan in a necktie, smiling subtly at a Cyber-Meeting table, deciphering 'Kento Shimasu'](/osushi-kento-shimasu.png?v=1)\n\n` + data.content;
         }
+        if (data && data.content && !data.content.includes('amzn.to/4gyjisM')) {
+            const affiliateHtml = `\n\n<AffiliateLink title="Essential Guide to Japanese Business Culture" desc="Navigate complex phrases like 'Kento Shimasu' with confidence. A must-read for mastering the unwritten rules of Japanese corporate communication." url="https://amzn.to/4gyjisM" icon="💼" cta="View Guide on Amazon →" />`;
+            data.content = data.content + affiliateHtml;
+        }
     } else if (slug === 'demon-slayer-kokoro-wo-moyase-shimei' || slug === 'kokoro-wo-moyase') {
         if (data && data.content && !data.content.includes('osushi-kokoro-wo-moyase.png')) {
             data.content = `![Osushi-chan in Demon Slayer armor, smiling determinedly at a Cyber-Meeting table, deciphering 'Kokoro wo Moyase'](/osushi-kokoro-wo-moyase.png?v=1)\n\n` + data.content;
