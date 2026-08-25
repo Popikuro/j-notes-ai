@@ -189,7 +189,7 @@ async function getArticle(slug: string) {
         const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
         if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
 
-                data = { id: 99919, title: "Uwabaki and the Art of Cleanliness: Why Japan Takes Its Shoes Off", slug: 'uwabaki-and-the-art-of-cleanliness', content: contentBody, excerpt: "From ancient tatami rooms to modern schools, discover the profound philosophy behind Japan's shoe-removal culture and how the world is catching on.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        data = { id: 99919, title: "Uwabaki and the Art of Cleanliness: Why Japan Takes Its Shoes Off", slug: 'uwabaki-and-the-art-of-cleanliness', content: contentBody, excerpt: "From ancient tatami rooms to modern schools, discover the profound philosophy behind Japan's shoe-removal culture and how the world is catching on.", published_at: parsedDate, created_at: parsedDate, category_id: null };
         error = null;
     } else if (slug === 'dashi-and-umami') {
         const fs = require('fs');
