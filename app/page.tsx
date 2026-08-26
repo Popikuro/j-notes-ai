@@ -248,10 +248,10 @@ export default async function Home() {
             src="/site_header_neon_dojo.png"
             alt="Neo-Edo Cyberpunk Sushi-ya Header"
             fill
-            className="object-cover opacity-30 mix-blend-luminosity"
+            className="object-cover opacity-40 mix-blend-luminosity"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60" />
         </div>
 
         <div className="relative z-10 container max-w-6xl mx-auto px-6 py-20 lg:py-32 flex flex-col lg:flex-row items-center justify-between gap-12 text-white">
@@ -273,8 +273,8 @@ export default async function Home() {
           {/* Right Column: Visual Graphic */}
           <div className="flex-1 w-full max-w-md md:max-w-lg lg:max-w-xl flex items-center justify-center relative group mt-12 lg:mt-0">
             {/* Soft Neon Glow Background */}
-            <div className="absolute w-3/4 h-3/4 top-12 bg-cyan-500/10 blur-3xl rounded-full group-hover:bg-cyan-400/20 transition-all duration-500 pointer-events-none" />
-            <div className="absolute w-1/2 h-1/2 top-1/4 bg-amber-500/10 blur-2xl rounded-full pointer-events-none" />
+            <div className="absolute w-3/4 h-3/4 top-12 bg-cyan-500/5 blur-3xl rounded-full group-hover:bg-cyan-400/10 transition-all duration-500 pointer-events-none" />
+            <div className="absolute w-1/2 h-1/2 top-1/4 bg-amber-500/5 blur-2xl rounded-full pointer-events-none" />
             
             {/* Floating Characters */}
             <div className="relative w-full aspect-[4/3] z-10">
