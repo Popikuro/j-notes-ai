@@ -61,7 +61,15 @@ export default async function Home() {
     'the-magic-word-otsukaresama': '/osushi-otsukaresama.png',
     'the-art-of-japanese-bow-ojigi': '/osushi-bowing-guide.png',
     'komorebi-sunlight-filtering-through-trees': '/osushi-komorebi.png',
-    'nindo-naruto-way-of-the-ninja': '/osushi-samurai-nindo.png'
+    'nindo-naruto-way-of-the-ninja': '/osushi-samurai-nindo.png',
+    'samurai-spirit-ai-mastery': '/samurai-spirit-ai-mastery.png',
+    'zen-and-art-of-prompting': '/zen-emptiness.png',
+    'chanoyu-cyber-tea': '/chanoyu-cyber-tea.png',
+    'mottainai': '/osushi-mottainai.png',
+    'mottainai-digital-minimalism-in-ai': '/osushi-mottainai.png',
+    'kintsugi-digital-flaws': '/kintsugi-the-beauty-of-digital-flaws.png',
+    'shuhari-three-stages-of-ai-mastery': '/shuhari-three-stages-of-ai-mastery.png',
+    'bushido-ethics-in-ai': '/bushido-ethics-in-ai.png'
   };
 
   const mappedArticles = articlesData?.map(article => ({
