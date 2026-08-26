@@ -222,34 +222,33 @@ export default async function Home() {
           {/* Left Column: Text */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-5xl md:text-7xl font-bold font-inter tracking-tight mb-6 drop-shadow-lg">
-              Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Unspoken</span>.
+              Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Unspoken Wisdom</span>.
             </h1>
             <p className="text-lg md:text-xl font-outfit text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-8 drop-shadow-md">
-              Dive deep into Japanese Business Culture, decipher Honne (true feelings) vs Tatemae (public facade), and navigate nuances with AI-powered insights.
+              Explore Japanese culture, mindfulness, and the art of subtraction. From business nuances (Honne vs. Tatemae) to culinary architecture (Dashi & Umami), decoded through modern AI insights.
             </p>
             <div className="flex justify-center lg:justify-start gap-4">
               <Link href="#articles" className="bg-white text-slate-950 px-8 py-3 rounded-full font-medium hover:bg-slate-200 transition-colors shadow-lg">
-                Start Reading
+                Start Reading &rarr;
               </Link>
             </div>
           </div>
 
           {/* Right Column: Visual Graphic */}
           <div className="flex-1 w-full max-w-md lg:max-w-none flex items-center justify-center">
-            {fs.existsSync(path.join(process.cwd(), 'public', 'images', 'hero-visual.jpg')) ? (
-              <div className="relative w-full aspect-square md:aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(99,102,241,0.2)] border border-slate-800">
-                <Image src="/images/hero-visual.jpg" alt="Hero Visual" fill className="object-cover" priority />
+            <div className="relative w-full max-w-sm aspect-square rounded-full border border-slate-800 flex items-center justify-center p-8 group">
+              <div className="absolute inset-0 rounded-full border border-dashed border-indigo-500/50 animate-[spin_60s_linear_infinite]" />
+              <div className="absolute inset-4 rounded-full border border-purple-500/30 animate-[spin_40s_linear_infinite_reverse]" />
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-sm border border-slate-700/50 shadow-[0_0_60px_rgba(99,102,241,0.3)] relative overflow-hidden flex items-center justify-center">
+                <Image 
+                  src="/images/sushi-trio.jpg" 
+                  alt="Sushi Trio Character" 
+                  fill 
+                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-300"
+                  priority 
+                />
               </div>
-            ) : (
-              <div className="relative w-full max-w-sm aspect-square rounded-full border border-slate-800 flex items-center justify-center p-8">
-                <div className="absolute inset-0 rounded-full border border-dashed border-indigo-500/50 animate-[spin_60s_linear_infinite]" />
-                <div className="absolute inset-4 rounded-full border border-purple-500/30 animate-[spin_40s_linear_infinite_reverse]" />
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-sm border border-slate-700/50 flex flex-col items-center justify-center shadow-[0_0_60px_rgba(99,102,241,0.3)] gap-4">
-                  <Sparkles className="w-12 h-12 text-indigo-400 animate-pulse" />
-                  <span className="font-outfit text-sm text-indigo-300 tracking-widest uppercase">Cyber-Zen Enso</span>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </section>
