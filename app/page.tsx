@@ -240,12 +240,12 @@ export default async function Home() {
             <div className="absolute w-3/4 h-3/4 bg-cyan-500/10 blur-3xl rounded-full group-hover:bg-cyan-400/20 transition-all duration-500 pointer-events-none" />
             <div className="absolute w-1/2 h-1/2 bg-amber-500/10 blur-2xl rounded-full pointer-events-none" />
             
-            {/* Title Badge */}
-            <div className="z-20 inline-flex flex-col items-center px-4 py-1.5 rounded-full bg-slate-900/70 border border-cyan-500/25 backdrop-blur-md mb-3">
-              <span className="font-bold tracking-wider text-slate-100 text-sm md:text-base drop-shadow-[0_0_8px_rgba(56,189,248,0.35)]">
-                <span className="text-cyan-400 mr-1.5">//</span>お寿司ちゃん達
+            {/* Title */}
+            <div className="z-20 flex flex-col items-center text-center mb-4">
+              <span className="text-xl md:text-2xl font-bold tracking-wider text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                お寿司ちゃん達
               </span>
-              <span className="text-[10px] font-mono tracking-widest text-cyan-400/80 uppercase mt-0.5">
+              <span className="text-xs md:text-sm font-mono tracking-widest text-cyan-400 font-semibold uppercase mt-1">
                 THE SUSHI GUYS
               </span>
             </div>
