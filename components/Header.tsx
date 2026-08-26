@@ -9,11 +9,11 @@ export default function Header() {
                     <div className="relative h-8 w-8 overflow-hidden rounded-full border border-indigo-500/20 shadow-sm bg-slate-100 dark:bg-slate-800">
                         <img src="/j-note1.jpg?v=2" alt="J-Notes Mascot" className="w-full h-full object-cover" />
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-2">
                         <span className="text-xl font-bold font-inter tracking-tight bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
                             J-Notes AI
                         </span>
-                        <span className="text-sm opacity-80" aria-label="Japan" role="img">🇯🇵</span>
+                        <span className="text-xl opacity-90 pb-[1px]" aria-label="Japan" role="img">🇯🇵</span>
                     </div>
                 </Link>
                 <nav className="flex items-center gap-6 text-sm font-medium font-outfit text-slate-600 dark:text-slate-300">
