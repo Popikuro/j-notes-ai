@@ -41,9 +41,33 @@ export default async function Home() {
     'nindo-naruto-way-of-the-ninja': 'Nindo [忍道]: The Way of the Ninja and Finding Your Belief'
   };
 
+  const overrideThumbnails: Record<string, string> = {
+    'ikigai-finding-purpose-in-ai-era': '/images/ikigai-finding-purpose-in-ai-era/ikigai-visual.png',
+    'the-art-of-ma-digital-pause': '/images/the-art-of-ma-digital-pause/ma-visual.png',
+    'ichigo-ichie-once-in-a-lifetime-meeting': '/images/ichigo-ichie-once-in-a-lifetime-meeting/ichigo_ichie_cyber_tea.png',
+    'gochisosama-thank-you-for-the-meal': '/images/gochisosama-thank-you-for-the-meal/gochisosama_solo_gratitude.png',
+    'wabi-sabi-japanese-aesthetic-imperfection': '/images/wabi-sabi-japanese-aesthetic-imperfection/article_visual.png',
+    'yaoyorozu-no-kami-japanese-animism': '/images/yaoyorozu-no-kami-japanese-animism/article_visual.png',
+    'aizuchi-japanese-art-of-listening': '/images/aizuchi-japanese-art-of-listening/article_visual.png',
+    'omotenashi-japanese-selfless-hospitality': '/images/omotenashi-japanese-selfless-hospitality/article_visual.png',
+    'kaizen-toyota-way-continuous-improvement': '/images/kaizen-toyota-way-continuous-improvement/article_visual.png',
+    'uwabaki-and-the-art-of-cleanliness': '/images/articles/uwabaki-top.png',
+    'dashi-and-umami': '/osushi-dashi-umami-v3.png',
+    'ichiju-sansai-dining-os': '/osushi-ichiju-sansai.png',
+    'deciphering-kento-shimasu': '/osushi-kento-shimasu.png',
+    'demon-slayer-kokoro-wo-moyase-shimei': '/osushi-kokoro-wo-moyase.png',
+    'itadakimasu-meaning-japanese-gratitude': '/osushi-itadakimasu.png',
+    'the-art-of-meishi-more-than-just-a-business-card': '/osushi-meishi-premium.png',
+    'the-magic-word-otsukaresama': '/osushi-otsukaresama.png',
+    'the-art-of-japanese-bow-ojigi': '/osushi-bowing-guide.png',
+    'komorebi-sunlight-filtering-through-trees': '/osushi-komorebi.png',
+    'nindo-naruto-way-of-the-ninja': '/osushi-samurai-nindo.png'
+  };
+
   const mappedArticles = articlesData?.map(article => ({
     ...article,
     title: overrideTitles[article.slug] || article.title,
+    thumbnail: overrideThumbnails[article.slug] || article.thumbnail,
     categories: { name: article.category_id ? categoryMap.get(article.category_id) || "Insight" : "Insight" }
   })) || [];
 
@@ -150,6 +174,8 @@ export default async function Home() {
       slugToCheck = 'mottainai-digital-minimalism-in-ai';
     }
 
+    let updatedArticle = { ...article };
+
     try {
       const filePath = path.join(process.cwd(), 'articles', 'philosophy', `${slugToCheck}.mdx`);
       if (fs.existsSync(filePath)) {
@@ -158,44 +184,72 @@ export default async function Home() {
         if (dateMatch && dateMatch[1]) {
           const parsedDate = new Date(`${dateMatch[1]}T00:00:00.000Z`); // Set to JST 9:00 AM (UTC midnight)
           if (!isNaN(parsedDate.getTime())) {
-            return { ...article, published_at: parsedDate.toISOString() };
+            updatedArticle.published_at = parsedDate.toISOString();
           }
+        }
+        const thumbnailMatch = content.match(/thumbnail:\s*["']([^"']+)["']/);
+        if (thumbnailMatch && thumbnailMatch[1]) {
+          updatedArticle.thumbnail = thumbnailMatch[1];
         }
       }
     } catch (e) {
       // Ignore missing files or read errors, fallback to default
     }
 
-    return article;
+    // Apply override thumbnails to raw articles as well just in case
+    updatedArticle.thumbnail = overrideThumbnails[updatedArticle.slug] || updatedArticle.thumbnail;
+
+    return updatedArticle;
   }).filter(article => new Date(article.published_at).getTime() <= Date.now()) // Filter out future articles
     .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full h-[45vh] min-h-[400px] max-h-[500px] overflow-hidden bg-slate-950 flex items-center justify-center">
+      <section className="relative w-full overflow-hidden bg-slate-950 flex items-center justify-center border-b border-slate-800">
         <div className="absolute inset-0 z-0">
           <Image
             src="/site_header_neon_dojo.png"
             alt="Neo-Edo Cyberpunk Sushi-ya Header"
             fill
-            className="object-cover opacity-60 mix-blend-luminosity"
+            className="object-cover opacity-30 mix-blend-luminosity"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/90" />
         </div>
 
-        <div className="relative z-10 container max-w-5xl mx-auto px-6 text-center text-white mt-8">
-          <h1 className="text-5xl md:text-7xl font-bold font-inter tracking-tight mb-4 drop-shadow-lg">
-            Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Unspoken</span>.
-          </h1>
-          <p className="text-lg md:text-xl font-outfit text-slate-300 max-w-2xl mx-auto mb-6 drop-shadow-md">
-            Dive deep into Japanese Business Culture, decipher Honne (true feelings) vs Tatemae (public facade), and navigate nuances with AI-powered insights.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Link href="#featured" className="bg-white text-slate-950 px-8 py-3 rounded-full font-medium hover:bg-slate-200 transition-colors shadow-lg">
-              Start Reading
-            </Link>
+        <div className="relative z-10 container max-w-6xl mx-auto px-6 py-20 lg:py-32 flex flex-col lg:flex-row items-center justify-between gap-12 text-white">
+          {/* Left Column: Text */}
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="text-5xl md:text-7xl font-bold font-inter tracking-tight mb-6 drop-shadow-lg">
+              Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Unspoken</span>.
+            </h1>
+            <p className="text-lg md:text-xl font-outfit text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-8 drop-shadow-md">
+              Dive deep into Japanese Business Culture, decipher Honne (true feelings) vs Tatemae (public facade), and navigate nuances with AI-powered insights.
+            </p>
+            <div className="flex justify-center lg:justify-start gap-4">
+              <Link href="#articles" className="bg-white text-slate-950 px-8 py-3 rounded-full font-medium hover:bg-slate-200 transition-colors shadow-lg">
+                Start Reading
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Visual Graphic */}
+          <div className="flex-1 w-full max-w-md lg:max-w-none flex items-center justify-center">
+            {fs.existsSync(path.join(process.cwd(), 'public', 'images', 'hero-visual.jpg')) ? (
+              <div className="relative w-full aspect-square md:aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(99,102,241,0.2)] border border-slate-800">
+                <Image src="/images/hero-visual.jpg" alt="Hero Visual" fill className="object-cover" priority />
+              </div>
+            ) : (
+              <div className="relative w-full max-w-sm aspect-square rounded-full border border-slate-800 flex items-center justify-center p-8">
+                <div className="absolute inset-0 rounded-full border border-dashed border-indigo-500/50 animate-[spin_60s_linear_infinite]" />
+                <div className="absolute inset-4 rounded-full border border-purple-500/30 animate-[spin_40s_linear_infinite_reverse]" />
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-sm border border-slate-700/50 flex flex-col items-center justify-center shadow-[0_0_60px_rgba(99,102,241,0.3)] gap-4">
+                  <Sparkles className="w-12 h-12 text-indigo-400 animate-pulse" />
+                  <span className="font-outfit text-sm text-indigo-300 tracking-widest uppercase">Cyber-Zen Enso</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

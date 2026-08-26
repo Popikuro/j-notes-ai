@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { SmartTitle } from "./SmartTitle";
 
@@ -40,25 +41,40 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredArticles?.map((article) => (
-                    <div key={article.id} className="group relative flex flex-col h-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
-                        <div className="flex items-center gap-3 mb-4">
-                            <span
-                                className="z-10 inline-flex items-center justify-center whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent shadow-sm"
-                            >
-                                {article.categories?.name || "Insight"}
-                            </span>
+                    <div key={article.id} className="group relative flex flex-col h-full overflow-hidden bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all">
+                        <div className="w-full aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800/50">
+                            {article.thumbnail ? (
+                                <Image 
+                                    src={article.thumbnail} 
+                                    alt={article.title} 
+                                    fill 
+                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                            ) : (
+                                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-950 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                                    <span className="text-4xl opacity-20">⛩️</span>
+                                </div>
+                            )}
                         </div>
-                        <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
-                            <Link href={`/articles/${article.slug}`} className="hover:underline focus:outline-none">
-                                <SmartTitle title={article.title} />
+                        <div className="flex flex-col flex-1 p-6">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="z-10 inline-flex items-center justify-center whitespace-nowrap shrink-0 text-[11px] font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-transparent shadow-sm">
+                                    {article.categories?.name || "Insight"}
+                                </span>
+                            </div>
+                            <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
+                                <Link href={`/articles/${article.slug}`} className="hover:underline focus:outline-none">
+                                    <SmartTitle title={article.title} />
+                                </Link>
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm font-outfit line-clamp-3 mb-6 flex-1">
+                                {article.excerpt}
+                            </p>
+                            <Link href={`/articles/${article.slug}`} className="flex items-center w-fit text-sm font-medium text-indigo-600 dark:text-indigo-400 opacity-80 hover:opacity-100 transition-opacity mt-auto">
+                                Read Article <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm font-outfit line-clamp-3 mb-6 flex-1">
-                            {article.excerpt}
-                        </p>
-                        <Link href={`/articles/${article.slug}`} className="flex items-center w-fit text-sm font-medium text-indigo-600 dark:text-indigo-400 opacity-80 hover:opacity-100 transition-opacity">
-                            Read Article <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        </div>
                     </div>
                 ))}
 
