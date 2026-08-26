@@ -243,7 +243,7 @@ export default async function Home() {
             {/* Floating Characters & Title */}
             <div className="relative w-full aspect-[4/3] z-10 flex items-center justify-center">
               {/* Title */}
-              <div className="absolute top-[8%] sm:top-[12%] z-20 flex flex-col items-center text-center cursor-default">
+              <div className="absolute top-[22%] sm:top-[28%] md:top-[32%] z-20 flex flex-col items-center text-center cursor-default">
                 <span className="text-xl md:text-2xl font-bold tracking-wider text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                   お寿司ちゃん達
                 </span>

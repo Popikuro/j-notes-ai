@@ -64,4 +64,26 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
                                 </span>
                             </div>
                             <h3 className="text-xl font-bold font-inter mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
-          
+                                <Link href={`/articles/${article.slug}`} className="hover:underline focus:outline-none">
+                                    <SmartTitle title={article.title} />
+                                </Link>
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm font-outfit line-clamp-3 mb-6 flex-1">
+                                {article.excerpt}
+                            </p>
+                            <Link href={`/articles/${article.slug}`} className="flex items-center w-fit text-sm font-medium text-indigo-600 dark:text-indigo-400 opacity-80 hover:opacity-100 transition-opacity mt-auto">
+                                Read Article <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </div>
+                ))}
+
+                {filteredArticles?.length === 0 && (
+                    <div className="col-span-full py-12 text-center text-slate-500 font-outfit">
+                        No articles found in this category. Check back soon!
+                    </div>
+                )}
+            </div>
+        </section>
+    );
+}
