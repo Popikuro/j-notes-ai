@@ -444,6 +444,11 @@ The characters 馳走 (Chisou) historically refer to "running around"—represen
             const affiliateHtml = `\n\n<AffiliateLink title="Traditional Japanese Wooden Chopsticks Set" desc="Enhance your dining experience and practice Itadakimasu with a beautifully crafted set of reusable wooden chopsticks." url="https://amzn.to/4gnMmCU" icon="🥢" cta="View Chopsticks on Amazon →" />`;
             data.content = data.content + affiliateHtml;
         }
+    } else if (slug === 'samurai-spirit-ai-mastery') {
+        if (data && data.content && !data.content.includes('amzn.to/4gThLyE')) {
+            const affiliateHtml = `\n\n<AffiliateLink title="Bushido: The Soul of Japan" desc="Discover the classic text that introduced the world to the Samurai code. A timeless guide to honor, discipline, and mastery that remains deeply relevant in the modern age." url="https://amzn.to/4gThLyE" icon="📖" cta="View Book on Amazon →" />`;
+            data.content = data.content + affiliateHtml;
+        }
     }
 
     return data;
