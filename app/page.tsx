@@ -257,8 +257,8 @@ export default async function Home() {
         <div className="relative z-10 container max-w-6xl mx-auto px-6 py-20 lg:py-32 flex flex-col lg:flex-row items-center justify-between gap-12 text-white">
           {/* Left Column: Text */}
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-5xl md:text-7xl font-bold font-inter tracking-tight mb-6 drop-shadow-lg">
-              Master the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Unspoken Wisdom</span>.
+            <h1 className="text-3xl md:text-5xl font-extrabold font-inter tracking-tight text-white leading-tight mb-6 drop-shadow-lg">
+              Master the Unspoken Wisdom, Taste, Mind, and Aesthetics of Japan.
             </h1>
             <p className="text-lg md:text-xl font-outfit text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-8 drop-shadow-md">
               Explore Japanese culture, mindfulness, and the art of subtraction. From business nuances (Honne vs. Tatemae) to culinary architecture (Dashi & Umami), decoded through modern AI insights.
