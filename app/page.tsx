@@ -259,7 +259,7 @@ export default async function Home() {
           <div className="w-full lg:w-[65%] text-center lg:text-left z-20">
             <div className="inline-flex items-center justify-center lg:justify-start gap-2 px-3 py-1.5 mb-6 text-[11px] font-bold uppercase tracking-widest text-cyan-400 bg-cyan-950/40 border border-cyan-800/50 rounded-full shadow-sm backdrop-blur-sm">
               <span className="text-sm leading-none" role="img" aria-label="Japan">🇯🇵</span>
-              JAPANESE CULTURE &amp; AI PERSPECTIVES
+              JAPANESE CULTURE &amp; SUSHI PERSPECTIVES
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-inter tracking-tight leading-[1.1] mb-4 drop-shadow-xl text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
               Master the Unspoken Wisdom, Taste, Mind, and Aesthetics of Japan.
