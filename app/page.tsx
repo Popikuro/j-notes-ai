@@ -97,7 +97,8 @@ export default async function Home() {
     'kintsugi-the-beauty-of-digital-flaws': '/kintsugi-the-beauty-of-digital-flaws.png',
     'kintsugi-digital-flaws': '/kintsugi-the-beauty-of-digital-flaws.png',
     'shuhari-three-stages-of-ai-mastery': '/shuhari-three-stages-of-ai-mastery.png',
-    'bushido-ethics-in-ai': '/bushido-ethics-in-ai.png'
+    'bushido-ethics-in-ai': '/bushido-ethics-in-ai.png',
+    'honne-and-tatemae': '/honne-tatemae-tamago.png'
   };
 
   const mappedArticles = articlesData?.map(article => ({
