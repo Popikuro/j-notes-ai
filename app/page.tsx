@@ -236,14 +236,18 @@ export default async function Home() {
 
           {/* Right Column: Visual Graphic */}
           <div className="flex-1 w-full max-w-md lg:max-w-none flex items-center justify-center">
-            <div className="relative w-full max-w-sm aspect-square rounded-full border border-slate-800 flex items-center justify-center p-8 group">
-              <div className="absolute inset-0 rounded-full border border-dashed border-indigo-500/50 animate-[spin_60s_linear_infinite]" />
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-sm border border-slate-700/50 shadow-[0_0_60px_rgba(99,102,241,0.3)] relative overflow-hidden flex items-center justify-center">
+            <div className="relative w-full max-w-sm aspect-square rounded-full flex items-center justify-center p-6 lg:p-8 group">
+              {/* Outer Neon Glow Rings */}
+              <div className="absolute inset-0 rounded-full border border-dashed border-cyan-500/50 animate-[spin_60s_linear_infinite]" />
+              <div className="absolute inset-2 rounded-full border border-amber-500/30 animate-[spin_40s_linear_infinite_reverse]" />
+              
+              {/* Main Circular Container - Full Moon Spotlight */}
+              <div className="w-full h-full rounded-full bg-gradient-to-b from-slate-100 via-amber-50 to-orange-100 shadow-[0_0_50px_rgba(56,189,248,0.25)] group-hover:shadow-[0_0_80px_rgba(56,189,248,0.4)] ring-2 ring-cyan-400/50 ring-offset-4 ring-offset-slate-950 transition-all duration-500 relative overflow-hidden flex items-center justify-center">
                 <Image 
                   src="/images/sushi-trio.png" 
                   alt="Sushi Trio Character" 
                   fill 
-                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain p-6 lg:p-8 group-hover:scale-110 transition-transform duration-500"
                   priority 
                 />
               </div>
