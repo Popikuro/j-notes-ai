@@ -203,6 +203,18 @@ async function getArticle(slug: string) {
 
         data = { id: 99920, title: "The Architecture of Umami: How Japanese Dashi Engineered the Fifth Taste", slug: 'dashi-and-umami', content: contentBody, excerpt: "Western stock adds layers; Japanese dashi extracts essence. Discover the ancient 'subtraction algorithm' behind dashi, the molecular synergy of Umami, and how savoring pure broth recalibrates the human operating system.", published_at: parsedDate, created_at: parsedDate, category_id: null };
         error = null;
+    } else if (slug === 'honne-and-tatemae') {
+        const fs = require('fs');
+        const path = require('path');
+        let fileContent = '';
+        try { fileContent = fs.readFileSync(path.join(process.cwd(), 'articles', 'philosophy', 'honne-and-tatemae.mdx'), 'utf8'); } catch (e) { }
+        const contentBody = fileContent.replace(/---[\s\S]*?---/, '').trim();
+        let parsedDate = new Date().toISOString();
+        const dateMatch = fileContent.match(/date:\s*["']([^"']+)["']/);
+        if (dateMatch && dateMatch[1]) { const d = new Date(`${dateMatch[1]}T00:00:00.000Z`); if (!isNaN(d.getTime())) parsedDate = d.toISOString(); }
+
+        data = { id: 99921, title: "Honne & Tatemae: Decoding Japan's Social Software for Harmony and Truth", slug: 'honne-and-tatemae', content: contentBody, excerpt: "Why do Japanese people say one thing and feel another? Decoding the subtle dual-layer communication protocol that preserves collective harmony without erasing personal truth.", published_at: parsedDate, created_at: parsedDate, category_id: null };
+        error = null;
     } else if (error || !data) {
         return null;
     }
