@@ -520,4 +520,29 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                         </span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl font-bold font-inter le
+                    <h1 className="text-4xl md:text-5xl font-bold font-inter leading-tight text-slate-900 dark:text-white mb-6">
+                        <SmartTitle title={article.title} />
+                    </h1>
+
+                    {article.excerpt && (
+                        <p className="text-2xl text-slate-600 dark:text-gray-300 font-outfit italic border-l-4 border-indigo-200 dark:border-indigo-900 pl-6 leading-relaxed mt-4">
+                            {article.excerpt}
+                        </p>
+                    )}
+                </div>
+            </div>
+
+            {/* Article Body   */}
+            <div className="container max-w-[720px] mx-auto px-6 md:px-0 flex flex-col items-start w-full leading-relaxed">
+                <MarkdownRenderer content={article.content} />
+            </div>
+
+            {/* Reading End Newsletter */}
+            <div className="container max-w-[720px] mx-auto px-6 md:px-0 pb-16 pt-16 border-t border-slate-200 dark:border-slate-800 mt-16">
+                <div className="w-full relative">
+                    <NewsletterSignup />
+                </div>
+            </div>
+        </article>
+    );
+}
