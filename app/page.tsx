@@ -254,10 +254,10 @@ export default async function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60" />
         </div>
 
-        <div className="relative z-10 container max-w-6xl mx-auto px-6 py-20 lg:py-32 flex flex-col lg:flex-row items-center justify-between gap-12 text-white">
+        <div className="relative z-10 container max-w-7xl mx-auto px-6 py-20 lg:py-32 flex flex-col lg:flex-row items-center text-white">
           {/* Left Column: Text */}
-          <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-3xl md:text-5xl font-extrabold font-inter tracking-tight text-white leading-tight mb-6 drop-shadow-lg">
+          <div className="w-full lg:w-[65%] text-center lg:text-left z-20">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-inter tracking-tight leading-[1.1] mb-6 drop-shadow-xl text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
               Master the Unspoken Wisdom, Taste, Mind, and Aesthetics of Japan.
             </h1>
             <p className="text-lg md:text-xl font-outfit text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-8 drop-shadow-md">
@@ -271,7 +271,7 @@ export default async function Home() {
           </div>
 
           {/* Right Column: Visual Graphic */}
-          <div className="flex-1 w-full max-w-md md:max-w-lg lg:max-w-xl flex items-center justify-center relative group mt-12 lg:mt-0">
+          <div className="w-full lg:w-[45%] lg:-ml-[10%] flex items-center justify-center relative group mt-16 lg:mt-0 z-10">
             {/* Soft Neon Glow Background */}
             <div className="absolute w-3/4 h-3/4 top-12 bg-cyan-500/5 blur-3xl rounded-full group-hover:bg-cyan-400/10 transition-all duration-500 pointer-events-none" />
             <div className="absolute w-1/2 h-1/2 top-1/4 bg-amber-500/5 blur-2xl rounded-full pointer-events-none" />
