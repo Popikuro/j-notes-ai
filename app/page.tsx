@@ -231,8 +231,9 @@ export default async function Home() {
       // Ignore missing files or read errors, fallback to default
     }
 
-    // Apply override thumbnails to raw articles as well just in case
+    // Apply override thumbnails and titles to all articles
     updatedArticle.thumbnail = overrideThumbnails[updatedArticle.slug] || updatedArticle.thumbnail;
+    updatedArticle.title = overrideTitles[updatedArticle.slug] || updatedArticle.title;
 
     return updatedArticle;
   }).filter(article => new Date(article.published_at).getTime() <= Date.now()) // Filter out future articles
