@@ -113,6 +113,7 @@ export default async function Home() {
       id: 99921,
       title: "Honne & Tatemae: Decoding Japan's Social Software for Harmony and Truth",
       slug: "honne-and-tatemae",
+      thumbnail: "/honne-tatemae-tamago.png",
       excerpt: "Why do Japanese people say one thing and feel another? Decoding the subtle dual-layer communication protocol that preserves collective harmony without erasing personal truth.",
       published_at: new Date("2026-08-26T00:00:00.000Z").toISOString(),
       category_id: null,
