@@ -235,22 +235,20 @@ export default async function Home() {
           </div>
 
           {/* Right Column: Visual Graphic */}
-          <div className="flex-1 w-full max-w-md lg:max-w-none flex items-center justify-center">
-            <div className="relative w-full max-w-sm aspect-square rounded-full flex items-center justify-center p-6 lg:p-8 group">
-              {/* Outer Neon Glow Rings */}
-              <div className="absolute inset-0 rounded-full border border-dashed border-cyan-500/50 animate-[spin_60s_linear_infinite]" />
-              <div className="absolute inset-2 rounded-full border border-amber-500/30 animate-[spin_40s_linear_infinite_reverse]" />
-              
-              {/* Main Circular Container - Full Moon Spotlight */}
-              <div className="w-full h-full rounded-full bg-gradient-to-b from-slate-100 via-amber-50 to-orange-100 shadow-[0_0_50px_rgba(56,189,248,0.25)] group-hover:shadow-[0_0_80px_rgba(56,189,248,0.4)] ring-2 ring-cyan-400/50 ring-offset-4 ring-offset-slate-950 transition-all duration-500 relative overflow-hidden flex items-center justify-center">
-                <Image 
-                  src="/images/sushi-trio.png" 
-                  alt="Sushi Trio Character" 
-                  fill 
-                  className="object-contain p-6 lg:p-8 group-hover:scale-110 transition-transform duration-500"
-                  priority 
-                />
-              </div>
+          <div className="flex-1 w-full max-w-lg lg:max-w-xl flex items-center justify-center relative group mt-12 lg:mt-0">
+            {/* Soft Neon Glow Background */}
+            <div className="absolute w-3/4 h-3/4 bg-cyan-500/10 blur-3xl rounded-full group-hover:bg-cyan-400/20 transition-all duration-500" />
+            <div className="absolute w-1/2 h-1/2 bg-amber-500/10 blur-2xl rounded-full" />
+            
+            {/* Floating Characters */}
+            <div className="relative w-full aspect-[4/3] z-10">
+              <Image 
+                src="/images/sushi-trio.png" 
+                alt="Sushi Trio Character" 
+                fill 
+                className="object-contain hover:-translate-y-2 hover:scale-105 transition-all duration-300 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+                priority 
+              />
             </div>
           </div>
         </div>
