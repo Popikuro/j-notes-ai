@@ -38,7 +38,30 @@ export default async function Home() {
     'the-art-of-meishi-more-than-just-a-business-card': 'Meishi: The Soul of a Business Card [名刺]',
     'itadakimasu-meaning-japanese-gratitude': 'Itadakimasu: The Spiritual Gratitude Hidden in Every Japanese Meal [いただきます]',
     'mottainai': 'Mottainai: The Deep Respect for All Things [勿体無い]',
-    'nindo-naruto-way-of-the-ninja': 'Nindo [忍道]: The Way of the Ninja and Finding Your Belief'
+    'nindo-naruto-way-of-the-ninja': 'Nindo [忍道]: The Way of the Ninja and Finding Your Belief',
+    'demon-slayer-kokoro-wo-moyase-shimei': '"Set Your Heart Ablaze": What Demon Slayer Teaches Us About Japanese Purpose [使命]',
+    'the-art-of-japanese-bow-ojigi': 'The Silent Language: Understanding the Depth of the Japanese Bow [お辞儀]',
+    'deciphering-kento-shimasu': 'Deciphering "Kento Shimasu": The Art of the Gentle Japanese "No" [検討します]',
+    'komorebi-sunlight-filtering-trees': 'Komorebi: The Nostalgic Beauty of Sunlight Filtering Through Trees [木漏れ日]',
+    'wabi-sabi-japanese-aesthetic-imperfection': 'Wabi-Sabi: Finding Beauty in Imperfection and the Passing of Time [侘び寂び]',
+    'ichigo-ichie-once-in-a-lifetime-meeting': 'Ichigo Ichie: Why Every Meeting is a Once-in-a-Lifetime Opportunity [一期一会]',
+    'yaoyorozu-no-kami-japanese-animism': 'The Spirit of Eight Million Gods: Understanding Japanese Animism [八百万の神]',
+    'aizuchi-japanese-art-of-listening': 'The Art of Listening: Why "Aizuchi" is the Key to Smooth Japanese Communication [相槌]',
+    'omotenashi-japanese-selfless-hospitality': 'Omotenashi: The Japanese Art of Selfless Hospitality [おもてなし]',
+    'kaizen-toyota-way-continuous-improvement': 'Kaizen: The Toyota Secret to Continuous Improvement in Work and Life [改善]',
+    'nanori-the-samurai-roots-of-luffy-s-declaration': 'Nanori: The Samurai Roots of Luffy’s Declaration [名乗り]',
+    'gochisosama-desu-the-meaning-behind-japan-s-grateful-ending': 'Gochisosama desu: The Meaning Behind Japan\'s Grateful Ending [ご馳走様です]',
+    'ichiju-sansai-dining-os': 'The "Dining OS": How Ichiju-Sansai Optimizes the Human System [一汁三菜]',
+    'ikigai-finding-purpose-in-ai-era': 'Ikigai: Finding Your Purpose in the AI Era [生き甲斐]',
+    'the-art-of-ma-digital-pause': 'The Art of \'Ma\': Why You Need a Digital Pause More Than a Digital Detox [間]',
+    'kintsugi-the-beauty-of-digital-flaws': 'Kintsugi: The Beauty of Digital Flaws [金継ぎ]',
+    'shuhari-three-stages-of-ai-mastery': 'Shuhari: The Three Stages of AI Mastery [守破離]',
+    'bushido-ethics-in-ai': 'Bushido: The Ethics of the AI Prompt Engineer [武士道]',
+    'samurai-spirit-ai-mastery': 'The Samurai Spirit: Forging Human Mastery Alongside AI [侍魂]',
+    'zen-and-art-of-prompting': 'Zen and the Art of Prompting: Embracing \'Ku\' [禅]',
+    'chanoyu-cyber-tea': 'Cha-no-yu: The Ritual of the Cyber Tea Ceremony [茶の湯]',
+    'uwabaki-and-the-art-of-cleanliness': 'Uwabaki and the Art of Cleanliness: Why Japan Takes Its Shoes Off [上履き]',
+    'dashi-and-umami': 'The Architecture of Umami: How Japanese Dashi Engineered the Fifth Taste [出汁と旨味]'
   };
 
   const overrideThumbnails: Record<string, string> = {
