@@ -61,7 +61,8 @@ export default async function Home() {
     'zen-and-art-of-prompting': 'Zen [禅] and the Art of Prompting: Embracing \'Ku\' [空]',
     'chanoyu-cyber-tea': 'Cha-no-yu [茶の湯]: The Ritual of the Cyber Tea Ceremony',
     'uwabaki-and-the-art-of-cleanliness': 'Uwabaki [上履き] and the Art of Cleanliness: Why Japan Takes Its Shoes Off',
-    'dashi-and-umami': 'The Architecture of Umami [旨み]: How Japanese Dashi [出汁] Engineered the Fifth Taste'
+    'dashi-and-umami': 'The Architecture of Umami [旨み]: How Japanese Dashi [出汁] Engineered the Fifth Taste',
+    'honne-and-tatemae': 'Honne & Tatemae [本音と建前]: Decoding Japan\'s Social Software for Harmony and Truth'
   };
 
   const overrideThumbnails: Record<string, string> = {
@@ -107,6 +108,15 @@ export default async function Home() {
   })) || [];
 
   const rawArticles = [
+    {
+      id: 99921,
+      title: "Honne & Tatemae: Decoding Japan's Social Software for Harmony and Truth",
+      slug: "honne-and-tatemae",
+      excerpt: "Why do Japanese people say one thing and feel another? Decoding the subtle dual-layer communication protocol that preserves collective harmony without erasing personal truth.",
+      published_at: new Date("2026-08-26T00:00:00.000Z").toISOString(),
+      category_id: null,
+      categories: { name: "Insight" }
+    },
     {
       id: 99911,
       title: "Ikigai: Finding Your Purpose in the AI Era",
