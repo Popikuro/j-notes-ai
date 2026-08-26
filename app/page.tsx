@@ -238,13 +238,12 @@ export default async function Home() {
           <div className="flex-1 w-full max-w-md lg:max-w-none flex items-center justify-center">
             <div className="relative w-full max-w-sm aspect-square rounded-full border border-slate-800 flex items-center justify-center p-8 group">
               <div className="absolute inset-0 rounded-full border border-dashed border-indigo-500/50 animate-[spin_60s_linear_infinite]" />
-              <div className="absolute inset-4 rounded-full border border-purple-500/30 animate-[spin_40s_linear_infinite_reverse]" />
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-indigo-900/40 to-purple-900/40 backdrop-blur-sm border border-slate-700/50 shadow-[0_0_60px_rgba(99,102,241,0.3)] relative overflow-hidden flex items-center justify-center">
+              <div className="w-full h-full rounded-full bg-slate-50 border border-slate-200/20 shadow-[0_0_80px_rgba(255,255,255,0.15)] relative overflow-hidden flex items-center justify-center">
                 <Image 
                   src="/images/sushi-trio.jpg" 
                   alt="Sushi Trio Character" 
                   fill 
-                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain p-6 mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
                   priority 
                 />
               </div>
