@@ -42,15 +42,15 @@ export default async function Home() {
   };
 
   const overrideThumbnails: Record<string, string> = {
-    'ikigai-finding-purpose-in-ai-era': '/images/ikigai-finding-purpose-in-ai-era/ikigai-visual.png',
-    'the-art-of-ma-digital-pause': '/images/the-art-of-ma-digital-pause/ma-visual.png',
-    'ichigo-ichie-once-in-a-lifetime-meeting': '/images/ichigo-ichie-once-in-a-lifetime-meeting/ichigo_ichie_cyber_tea.png',
-    'gochisosama-thank-you-for-the-meal': '/images/gochisosama-thank-you-for-the-meal/gochisosama_solo_gratitude.png',
-    'wabi-sabi-japanese-aesthetic-imperfection': '/images/wabi-sabi-japanese-aesthetic-imperfection/article_visual.png',
-    'yaoyorozu-no-kami-japanese-animism': '/images/yaoyorozu-no-kami-japanese-animism/article_visual.png',
-    'aizuchi-japanese-art-of-listening': '/images/aizuchi-japanese-art-of-listening/article_visual.png',
-    'omotenashi-japanese-selfless-hospitality': '/images/omotenashi-japanese-selfless-hospitality/article_visual.png',
-    'kaizen-toyota-way-continuous-improvement': '/images/kaizen-toyota-way-continuous-improvement/article_visual.png',
+    'ikigai-finding-purpose-in-ai-era': '/article_visual_2026-03-01.png',
+    'the-art-of-ma-digital-pause': '/article_visual_2026-03-02.png',
+    'ichigo-ichie-once-in-a-lifetime-meeting': '/ichigo_ichie_cyber_tea.png',
+    'gochisosama-thank-you-for-the-meal': '/gochisosama_solo_gratitude.png',
+    'wabi-sabi-japanese-aesthetic-imperfection': '/article_visual_2026-03-03.png',
+    'yaoyorozu-no-kami-japanese-animism': '/article_visual_2026-03-04.png',
+    'aizuchi-japanese-art-of-listening': '/article_visual_2026-03-05.png',
+    'omotenashi-japanese-selfless-hospitality': '/article_visual_2026-03-01.png',
+    'kaizen-toyota-way-continuous-improvement': '/article_visual_2026-03-02.png',
     'uwabaki-and-the-art-of-cleanliness': '/images/articles/uwabaki-top.png',
     'dashi-and-umami': '/osushi-dashi-umami-v3.png',
     'ichiju-sansai-dining-os': '/osushi-ichiju-sansai.png',
@@ -67,6 +67,7 @@ export default async function Home() {
     'chanoyu-cyber-tea': '/chanoyu-cyber-tea.png',
     'mottainai': '/osushi-mottainai.png',
     'mottainai-digital-minimalism-in-ai': '/osushi-mottainai.png',
+    'kintsugi-the-beauty-of-digital-flaws': '/kintsugi-the-beauty-of-digital-flaws.png',
     'kintsugi-digital-flaws': '/kintsugi-the-beauty-of-digital-flaws.png',
     'shuhari-three-stages-of-ai-mastery': '/shuhari-three-stages-of-ai-mastery.png',
     'bushido-ethics-in-ai': '/bushido-ethics-in-ai.png'
