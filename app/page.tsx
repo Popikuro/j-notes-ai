@@ -240,18 +240,18 @@ export default async function Home() {
             <div className="absolute w-3/4 h-3/4 bg-cyan-500/10 blur-3xl rounded-full group-hover:bg-cyan-400/20 transition-all duration-500 pointer-events-none" />
             <div className="absolute w-1/2 h-1/2 bg-amber-500/10 blur-2xl rounded-full pointer-events-none" />
             
-            {/* Title */}
-            <div className="z-20 flex flex-col items-center text-center relative -mb-6 md:-mb-8 cursor-default">
-              <span className="text-xl md:text-2xl font-bold tracking-wider text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                お寿司ちゃん達
-              </span>
-              <span className="text-xs md:text-sm font-mono tracking-widest text-cyan-400 font-semibold uppercase mt-1">
-                THE SUSHI GUYS
-              </span>
-            </div>
+            {/* Floating Characters & Title */}
+            <div className="relative w-full aspect-[4/3] z-10 flex items-center justify-center">
+              {/* Title */}
+              <div className="absolute top-[8%] sm:top-[12%] z-20 flex flex-col items-center text-center cursor-default">
+                <span className="text-xl md:text-2xl font-bold tracking-wider text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                  お寿司ちゃん達
+                </span>
+                <span className="text-xs md:text-sm font-mono tracking-widest text-cyan-400 font-semibold uppercase mt-1">
+                  THE SUSHI GUYS
+                </span>
+              </div>
 
-            {/* Floating Characters */}
-            <div className="relative w-full aspect-[4/3] z-10">
               <Image 
                 src="/images/sushi-trio.png" 
                 alt="Sushi Trio Character" 
