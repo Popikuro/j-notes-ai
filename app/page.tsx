@@ -235,21 +235,11 @@ export default async function Home() {
           </div>
 
           {/* Right Column: Visual Graphic */}
-          <div className="flex-1 w-full max-w-lg lg:max-w-xl flex flex-col items-center justify-center gap-4 relative group mt-12 lg:mt-0">
+          <div className="flex-1 w-full max-w-md md:max-w-lg lg:max-w-xl flex items-center justify-center relative group mt-12 lg:mt-0">
             {/* Soft Neon Glow Background */}
             <div className="absolute w-3/4 h-3/4 top-12 bg-cyan-500/10 blur-3xl rounded-full group-hover:bg-cyan-400/20 transition-all duration-500 pointer-events-none" />
             <div className="absolute w-1/2 h-1/2 top-1/4 bg-amber-500/10 blur-2xl rounded-full pointer-events-none" />
             
-            {/* Title Block */}
-            <div className="z-20 flex flex-col items-center text-center cursor-default">
-              <span className="text-xl md:text-2xl font-bold tracking-wider text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                お寿司ちゃん達
-              </span>
-              <span className="text-xs md:text-sm font-mono tracking-widest text-cyan-400 font-semibold uppercase mt-1">
-                THE SUSHI GUYS
-              </span>
-            </div>
-
             {/* Floating Characters */}
             <div className="relative w-full aspect-[4/3] z-10">
               <Image 
