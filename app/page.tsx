@@ -291,7 +291,7 @@ export default async function Home() {
             <div className="absolute w-1/2 h-1/2 top-1/4 bg-amber-500/5 blur-2xl rounded-full pointer-events-none" />
             
             {/* Floating Characters */}
-            <div className="relative w-full aspect-[4/3] z-10">
+            <div className="relative w-full aspect-[4/3] z-10 scale-110 lg:scale-125 lg:origin-right">
               <Image 
                 src="/images/sushi-trio.png" 
                 alt="Sushi Trio Character" 
