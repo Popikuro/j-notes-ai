@@ -254,7 +254,7 @@ export default async function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60" />
         </div>
 
-        <div className="relative z-10 container max-w-7xl mx-auto px-6 py-20 lg:py-32 flex flex-col lg:flex-row items-center text-white">
+        <div className="relative z-10 container max-w-7xl mx-auto px-6 pt-20 pb-8 lg:pt-32 lg:pb-8 flex flex-col lg:flex-row items-center text-white">
           {/* Left Column: Text */}
           <div className="w-full lg:w-[65%] text-center lg:text-left z-20">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-inter tracking-tight leading-[1.1] mb-6 drop-shadow-xl text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
