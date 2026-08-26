@@ -241,7 +241,7 @@ export default async function Home() {
             <div className="absolute w-1/2 h-1/2 bg-amber-500/10 blur-2xl rounded-full pointer-events-none" />
             
             {/* Title */}
-            <div className="z-20 flex flex-col items-center text-center mb-4">
+            <div className="z-20 flex flex-col items-center text-center relative -mb-6 md:-mb-8 cursor-default">
               <span className="text-xl md:text-2xl font-bold tracking-wider text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                 お寿司ちゃん達
               </span>
