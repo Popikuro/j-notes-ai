@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
     return (
         <footer className="border-t border-slate-200 dark:border-slate-800 mt-0 pt-6 pb-10">
-            <div className="container mx-auto max-w-5xl px-6 flex flex-col items-center justify-center text-center text-sm text-slate-500 font-outfit">
+            <div className="container mx-auto max-w-7xl px-6 flex flex-col items-center justify-center text-center text-sm text-slate-500 font-outfit">
                 <div className="relative h-16 w-16 mb-6 overflow-hidden rounded-full border border-indigo-500/20 shadow-sm bg-slate-100 dark:bg-slate-800">
                     <img src="/j-note1.jpg?v=2" alt="J-Notes Mascot" className="w-full h-full object-cover" />
                 </div>

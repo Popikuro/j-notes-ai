@@ -15,7 +15,7 @@ export function ArticleList({ articles, categoryNames }: { articles: any[], cate
         : articles.filter(article => (article.categories?.name || "Insight") === activeCategory);
 
     return (
-        <section id="articles" className="py-20 container max-w-5xl mx-auto px-6">
+        <section id="articles" className="py-20 container max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 dark:border-slate-800 pb-6 gap-6">
                 <div>
                     <h2 className="text-3xl font-bold font-inter mb-2">Latest Insights</h2>
