@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -41,9 +42,4 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">
           {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
-  );
-}
+      
