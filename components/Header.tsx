@@ -17,17 +17,21 @@ export default function Header() {
                     </div>
                 </Link>
                 <nav className="flex items-center gap-6 text-sm font-medium font-outfit text-slate-600 dark:text-slate-300">
-                    <Link href="/" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                        Articles
-                    </Link>
                     <Link href="/admin" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                         Admin
                     </Link>
-                    <a href="https://x.com/JNotes_AI" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors ml-2" aria-label="Follow us on X">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                        </svg>
-                    </a>
+                    <div className="flex items-center gap-4 ml-2">
+                        <a href="https://x.com/JNotes_AI" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Follow us on X">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://bsky.app/profile/jnotesaijpn.bsky.social" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Follow us on Bluesky">
+                            <svg viewBox="0 0 568 501" aria-hidden="true" className="h-5 w-5 fill-current">
+                                <path d="M123.12 21.61C190.41 71.99 261.27 197.66 284 246.77c22.73-49.11 93.59-174.78 160.88-225.16C492.74-13.82 568-3.08 568 83.33c0 17.29-9.89 145.45-15.68 166.17-19.8 70.83-91.82 88.85-155.8 78 111.92 19.08 140.23 81.33 78.8 144.35-77.58 79.57-160.15-42.36-191.32-106.66-31.17 64.3-113.74 186.23-191.32 106.66-61.43-63.02-33.12-125.27 78.8-144.35-63.98 10.85-136-7.17-155.8-78C9.89 228.78 0 100.62 0 83.33 0-3.08 75.26-13.82 123.12 21.61z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </nav>
             </div>
         </header>
