@@ -17,9 +17,6 @@ export default function Header() {
                     </div>
                 </Link>
                 <nav className="flex items-center gap-6 text-sm font-medium font-outfit text-slate-600 dark:text-slate-300">
-                    <Link href="/admin" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                        Admin
-                    </Link>
                     <div className="flex items-center gap-4 ml-2">
                         <a href="https://x.com/JNotes_AI" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Follow us on X">
                             <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
